@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 const Page = () => {
   const [isNotify, setIsNotify] = useState<boolean>(true);
   return (
-    <section className="bg-white min-h-screen w-full ml-72 pl-5 overflow-y-auto">
-      <div className="bg-[#F7FAFD] py-8 mb-6 pl-10">
+    <>
+      <div className="bg-[#F7FAFD] py-8 mb-6 px-10">
         <div className="relative max-w-md">
           <input
             type="search"
@@ -88,7 +88,7 @@ const Page = () => {
           }
         />
       </div>
-      <div className="flex w-full justify-between px-10">
+      <div className="flex w-full gap-20 px-10">
         <div className="w-full max-w-xl  ">
           <h2 className="text-2xl font-bold">Announcment</h2>
           <div className="flex flex-col my-4">
@@ -103,7 +103,8 @@ const Page = () => {
           <p className="text-base font-normal">Let's check our recomendation</p>
         </div>
       </div>
-    </section>
+    </>
+
   );
 };
 
