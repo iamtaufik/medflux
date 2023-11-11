@@ -33,7 +33,12 @@ const Page = () => {
             />
           </svg>
 
-          <p>Your inventory is running low, it's time to restock the items now!</p>
+          <p>
+            Your inventory is running low, it's time to restock the items now!{' '}
+            <a href="#" className="font-bold">
+              Restock Now
+            </a>
+          </p>
           <div className="cursor-pointer" onClick={() => setIsNotify(false)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 text-black font-bold">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -41,7 +46,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="my-6 flex w-full gap-6 px-10">
+      <div className="my-6 flex w-full justify-between px-10">
         <Label
           title="Drug Stock Sold"
           value="3,529"
@@ -72,6 +77,7 @@ const Page = () => {
               </svg>
             </div>
           }
+          linkName="Check Stock"
         />
         <Label
           title="Medicine Expired"
@@ -86,25 +92,58 @@ const Page = () => {
               </svg>
             </div>
           }
+          linkName="See Now"
         />
       </div>
-      <div className="flex w-full gap-20 px-10">
+      <div className="flex w-full px-10 justify-between">
         <div className="w-full max-w-xl  ">
-          <h2 className="text-2xl font-bold">Announcment</h2>
-          <div className="flex flex-col my-4">
+          <h2 className="text-2xl font-bold">Recomendations</h2>
+          <p className="text-base font-normal mt-2">Machine Learning Analytics</p>
+          <div className="flex flex-col my-2">
             <Card title="Oil Bioprost Kaps" quantity={12} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Asifit Kaplet-Blister" quantity={9} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Fituno Kaplet-Blister" quantity={15} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Paracetamol Tablet" quantity={5} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
           </div>
         </div>
-        <div className="w-full max-w-md ">
-          <h2 className="text-2xl font-bold">Recomendations</h2>
-          <p className="text-base font-normal">Let's check our recomendation</p>
+        <div className="w-full max-w-lg">
+          <h2 className="text-2xl font-bold">
+            Announcment <span className="bg-red-600 text-white  px-2 rounded-3xl text-base">2</span>
+          </h2>
+          <p className="text-base font-normal mt-2">Let's check our recomendation</p>
+          <div className="flex flex-col my-4">
+            <div className="flex border rounded-2xl px-4 py-3 justify-between items-center">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-2xl font-semibold">123</h3>
+                  <p className="text-base font-extralight">Products</p>
+                </div>
+                <p className='text-base font-normal'>Potential Loss Drugs</p>
+              </div>
+              <div>
+                <svg width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1.5L8 8.5L1 15.5" stroke="#313C4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex border rounded-2xl px-4 py-3 justify-between items-center">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-2xl font-semibold">23</h3>
+                  <p className="text-base font-extralight">Products</p>
+                </div>
+                <p className='text-base font-normal'>Drugs Almost Expired</p>
+              </div>
+              <div>
+                <svg width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1.5L8 8.5L1 15.5" stroke="#313C4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
-
   );
 };
 
