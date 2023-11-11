@@ -97,7 +97,7 @@ const Dashboard = () => {
         </div>
         <div className="w-full max-w-lg">
           <h2 className="text-2xl font-bold">
-            Announcment <span className="bg-red-600 text-white  px-2 rounded-3xl text-base">2</span>
+            Announcment <span className="bg-[#F0483E] text-white  px-2 rounded-3xl text-base">2</span>
           </h2>
           <p className="text-base font-normal mt-2">Let's check our recomendation</p>
           <div className="flex flex-col my-4 gap-6">

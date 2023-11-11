@@ -54,7 +54,7 @@ const Page = () => {
       <div className="px-10">
         <div className="min-w-min max-w-3xl p-4 border rounded-2xl">
           <div className="px-6 justify-between flex items-center">
-            <h2 className="text-black font-bold text-lg">Transaction - Time Series</h2>
+          <h2 className="text-black font-bold text-xl px-6">Transaction - History</h2>
             <div className="flex gap-2 ">
               <div className="flex border rounded-lg p-2 bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -89,7 +89,7 @@ const Page = () => {
       <div className="px-10 my-10">
         <div className="min-w-min max-w-3xl p-4 border rounded-2xl">
           <div className="px-6 justify-between flex items-center">
-            <h2 className="text-black font-bold text-lg">Transaction - Buyer Disease</h2>
+            <h2 className="text-black font-bold text-xl px-6">Transaction - Buyer Disease</h2>
             <div className="flex gap-2 ">
               <div className="flex border rounded-lg p-2 bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
