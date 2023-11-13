@@ -84,7 +84,7 @@ const config: Config = {
       },
       borderRadius: {
         'tremor-small': '0.375rem',
-        'tremor-default': '0.5rem',
+        'tremor-default': '2rem',
         'tremor-full': '9999px',
       },
       fontSize: {

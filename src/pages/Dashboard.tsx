@@ -35,7 +35,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="my-6 flex w-full justify-between px-10">
+      <div className="my-6 flex w-full gap-6 justify-between px-10">
         <Label
           title="Drug Stock Sold"
           value="3,529"
@@ -85,7 +85,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="flex w-full px-10 justify-between">
-        <div className="w-full max-w-xl  ">
+        <div className="w-1/2   ">
           <h2 className="text-2xl font-bold">Recomendations</h2>
           <p className="text-base font-normal mt-2">Machine Learning Analytics</p>
           <div className="flex flex-col my-2">
@@ -95,7 +95,7 @@ const Dashboard = () => {
             <Card title="Paracetamol Tablet" quantity={5} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
           </div>
         </div>
-        <div className="w-full max-w-lg">
+        <div className="w-1/3 ">
           <h2 className="text-2xl font-bold">
             Announcment <span className="bg-[#F0483E] text-white  px-2 rounded-3xl text-base">2</span>
           </h2>

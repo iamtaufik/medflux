@@ -1,7 +1,7 @@
 'use client';
 import Label from '@/components/Label';
 import id from 'date-fns/locale/id';
-import { Card, DonutChart, AreaChart, DatePicker, DatePickerValue, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
+import { Card, DonutChart, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
 import React from 'react';
 
 const genders = [
@@ -44,6 +44,56 @@ const transactions = [
   },
 ];
 
+const payments = [
+  {
+    name: 'Qris',
+    value: 26.3,
+  },
+  {
+    name: 'Kredit',
+    value: 25.7,
+  },
+  {
+    name: 'Transfer',
+    value: 25.3,
+  },
+  {
+    name: 'Tunai',
+    value: 22.8,
+  },
+];
+
+const buyerDiseases = [
+  {
+    name: 'Diare',
+    value: 260,
+  },
+  {
+    name: 'Hipertensi',
+    value: Math.floor(Math.random() * 200),
+  },
+  {
+    name: 'Nyeri',
+    value: Math.floor(Math.random() * 200),
+  },
+  {
+    name: 'Infeksi Kulit',
+    value: Math.floor(Math.random() * 200),
+  },
+  {
+    name: 'Infeksi Bakteri',
+    value: Math.floor(Math.random() * 200),
+  },
+  {
+    name: 'Gangguan Pernaafsan',
+    value: Math.floor(Math.random() * 200),
+  },
+  {
+    name: 'Pascaoperasi',
+    value: Math.floor(Math.random() * 200),
+  },
+];
+
 const valueFormatter = (value: number) => {
   return `${value.toString()}%`;
 };
@@ -66,7 +116,7 @@ const Page = () => {
         </div>
       </div>
       <div className="px-10 text-black my-10">
-        <div className="flex gap-6">
+        <div className="flex gap-8">
           <Label
             title="Total Expenses"
             value="Rp. 433,097,858"
@@ -98,11 +148,11 @@ const Page = () => {
           />
         </div>
       </div>
-      <div className="flex px-10 justify-between my-10">
-        <Card className="max-w-sm min-h-max">
+      <div className="flex px-10 gap-8 justify-between my-10">
+        <Card className="w-1/3">
           <h2 className="text-2xl font-bold">Gender</h2>
           <DonutChart className="mt-6 h-[250px]" data={genders} category="value" index="name" valueFormatter={valueFormatter} colors={['blue', 'cyan']} showLabel={false} variant="donut" showAnimation={true} />
-          <div className="flex justify-center items-center gap-4 mt-4">
+          <div className="flex justify-center items-center gap-4 mt-4 text-sm">
             <p className="text-center flex items-center gap-2">
               <span className="bg-[#3b82f6] w-4 h-4 inline-block "></span> Laki- Laki
             </p>
@@ -111,14 +161,14 @@ const Page = () => {
             </p>
           </div>
         </Card>
-        <Card className="max-w-2xl">
+        <Card className="w-2/3">
           <h2 className="text-2xl font-bold">Transaction - Time Series</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div>
               <DateRangePicker className="max-w-min" locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
             </div>
-            <div className="max-w-min">
-              <SearchSelect placeholder='Drug Name'>
+            <div className="max-w-md">
+              <SearchSelect placeholder="Drug Name">
                 <SearchSelectItem value="1">Paracetamol</SearchSelectItem>
                 <SearchSelectItem value="2">Ambroxol</SearchSelectItem>
                 <SearchSelectItem value="3">CTM</SearchSelectItem>
@@ -126,6 +176,35 @@ const Page = () => {
             </div>
           </div>
           <AreaChart className="h-72 mt-4" data={transactions} index="date" categories={['value']} colors={['cyan']} valueFormatter={(value: number) => value.toString()} showAnimation={true} curveType="natural" />
+        </Card>
+      </div>
+      <div className="flex px-10 gap-8 justify-between my-10">
+        <Card className="w-1/3">
+          <h2 className="text-2xl font-bold">Payment Method</h2>
+          <DonutChart className="mt-6 h-[250px]" data={payments} category="value" index="name" valueFormatter={valueFormatter} colors={['blue', 'cyan', 'fuchsia', 'orange']} showLabel={true} variant="pie" showAnimation={true} />
+          <div className="flex justify-center items-center gap-4 mt-4 text-sm">
+            <p className="text-center flex items-center gap-2">
+              <span className="bg-[#3b82f6] w-4 h-4 inline-block "></span> Qris
+            </p>
+            <p className="text-center flex items-center gap-2">
+              <span className="bg-[#06b6d4] w-4 h-4 inline-block "></span> Kredit
+            </p>
+            <p className="text-center flex items-center gap-2">
+              <span className="bg-[#d946ef] w-4 h-4 inline-block "></span> Transfer
+            </p>
+            <p className="text-center flex items-center gap-2">
+              <span className="bg-[#f97316] w-4 h-4 inline-block "></span> Tunai
+            </p>
+          </div>
+        </Card>
+        <Card className="w-2/3">
+          <h2 className="text-2xl font-bold">Transaction - Buyer Disease</h2>
+          <div className="w-full flex gap-2 justify-end my-4">
+            <div>
+              <DateRangePicker className="max-w-min" locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
+            </div>
+          </div>
+          <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} />
         </Card>
       </div>
     </>
