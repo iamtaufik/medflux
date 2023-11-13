@@ -10,7 +10,7 @@ interface IProps {
 
 const Label = ({ title, value, icon, percentage, linkName }: IProps) => {
   return (
-    <div className="px-8 py-6 border max-w-xs w-full rounded-3xl h-full">
+    <div className="px-8 py-6 border max-w-xs w-full rounded-3xl min-h-max">
       <div className="flex whitespace-nowrap gap-4 items-center mb-4">
         {icon}
         <h2 className="text-black text-lg font-medium">{title}</h2>

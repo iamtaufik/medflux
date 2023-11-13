@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [transactionIsOpen, setTransactionIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
   return (
-    <div className={`w-1/5 min-h-screen bg-[#283342] py-7 flex  flex-col gap-8 fixed transition-all duration-300 ${isActive ? 'ml-0' : '-ml-[304px]'}`}>
+    <div className={`w-1/5 min-h-screen bg-[#283342] py-7 flex z-50  flex-col gap-8 fixed transition-all duration-300 ${isActive ? 'ml-0' : '-ml-[304px]'}`}>
       <div className=" px-6">
         <Image src="/logo-white.svg" alt="Logo" width={170} height={40} />
       </div>
