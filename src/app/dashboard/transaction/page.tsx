@@ -1,9 +1,9 @@
 'use client';
 import Label from '@/components/Label';
 import id from 'date-fns/locale/id';
-import GoogleMapReact from 'google-map-react';
+import { GoogleMap, MarkerF, useJsApiLoader, OverlayView } from '@react-google-maps/api';
 import { Card, DonutChart, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 const genders = [
   { name: 'Laki - Laki', value: 40 },
@@ -95,11 +95,37 @@ const buyerDiseases = [
   },
 ];
 
+const positions = [
+  {
+    lat: -7.797068,
+    lng: 110.370529,
+  },
+  {
+    lat: -7.797667547998971,
+    lng: 110.36837653846591,
+  },
+];
+
 const valueFormatter = (value: number) => {
   return `${value.toString()}%`;
 };
-const AnyReactComponent = ({ text, lat, lng }: { text?: string; lat: number; lng: number }) => <div className="bg-primary p-2 rounded-full"></div>;
+const Marker = ({ text, lat, lng }: { text?: string; lat: number; lng: number }) => (
+  <div>
+    <svg width={24} height={24} color="#1B81B0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
+      <path
+        fillRule="evenodd"
+        d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </div>
+);
 const Page = () => {
+  const [markers, setMarkers] = useState(positions);
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: '',
+  });
   return (
     <>
       <div className="flex justify-between items-center px-10">
@@ -208,27 +234,38 @@ const Page = () => {
           <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} />
         </Card>
       </div>
-      <div className="px-10">
+      <div className="px-10 my-10">
         <Card>
           <h2 className="text-2xl font-bold">Transaction - Buyer Disease</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div>
-              <DateRangePicker className="max-w-min" locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
+              <button className="px-4 py-2 border rounded-3xl">View Full Map</button>
             </div>
           </div>
-          <div className="w-full h-96">
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: '' }}
-              defaultCenter={{
-                lat: -7.797068,
-                lng: 110.370529,
-              }}
-              zoom={15}
-            >
-              <AnyReactComponent lat={-7.797068} lng={110.370529} />
-              <AnyReactComponent lat={-7.797667547998971} lng={110.36837653846591} />
-              <AnyReactComponent lat={-7.797068} lng={110.37052} />
-            </GoogleMapReact>
+          <div className="w-full h-[450px]">
+            {isLoaded && (
+              <GoogleMap
+                center={{
+                  lat: -7.797068,
+                  lng: 110.370529,
+                }}
+                zoom={13}
+                mapContainerStyle={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                {markers.map((marker, index) => (
+                  <MarkerF
+                    key={index}
+                    position={{ lat: marker.lat, lng: marker.lng }}
+                    icon={{
+                      url: '/marker.png',
+                    }}
+                  />
+                ))}
+              </GoogleMap>
+            )}
           </div>
         </Card>
       </div>
