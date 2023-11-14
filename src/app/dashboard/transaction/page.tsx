@@ -1,6 +1,7 @@
 'use client';
 import Label from '@/components/Label';
 import id from 'date-fns/locale/id';
+import GoogleMapReact from 'google-map-react';
 import { Card, DonutChart, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
 import React from 'react';
 
@@ -97,7 +98,7 @@ const buyerDiseases = [
 const valueFormatter = (value: number) => {
   return `${value.toString()}%`;
 };
-
+const AnyReactComponent = ({ text, lat, lng }: { text?: string; lat: number; lng: number }) => <div className="bg-primary p-2 rounded-full"></div>;
 const Page = () => {
   return (
     <>
@@ -205,6 +206,30 @@ const Page = () => {
             </div>
           </div>
           <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} />
+        </Card>
+      </div>
+      <div className="px-10">
+        <Card>
+          <h2 className="text-2xl font-bold">Transaction - Buyer Disease</h2>
+          <div className="w-full flex gap-2 justify-end my-4">
+            <div>
+              <DateRangePicker className="max-w-min" locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
+            </div>
+          </div>
+          <div className="w-full h-96">
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: '' }}
+              defaultCenter={{
+                lat: -7.797068,
+                lng: 110.370529,
+              }}
+              zoom={15}
+            >
+              <AnyReactComponent lat={-7.797068} lng={110.370529} />
+              <AnyReactComponent lat={-7.797667547998971} lng={110.36837653846591} />
+              <AnyReactComponent lat={-7.797068} lng={110.37052} />
+            </GoogleMapReact>
+          </div>
         </Card>
       </div>
     </>

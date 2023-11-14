@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import id from 'date-fns/locale/id';
-import { BarChart, Card, DateRangePicker, LineChart,AreaChart } from '@tremor/react';
+import { BarChart, Card, DateRangePicker, LineChart, AreaChart } from '@tremor/react';
 
 const demandForecast = [
   {
@@ -103,7 +103,7 @@ const Page = () => {
         <h1 className="text-2xl font-bold">Machine Learning Dashboard</h1>
         <p className="text-base font-normal">A quick recomendations machine learning analytics</p>
       </div>
-      <div className="px-10 my-10 flex gap-8 justify-between">
+      <div className="px-10 my-10 flex gap-8 justify-between ">
         <Card className="w-1/2">
           <h2 className="text-2xl font-bold">Demand Forecasting Model</h2>
           <div className="w-full flex gap-2 justify-end my-4">
@@ -111,7 +111,7 @@ const Page = () => {
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
             </div>
           </div>
-          <LineChart data={demandForecast} index="date" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true}/>
+          <LineChart data={demandForecast} index="date" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
         <Card className="w-1/2">
           <h2 className="text-2xl font-bold">Disease Trend</h2>
@@ -120,7 +120,7 @@ const Page = () => {
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
             </div>
           </div>
-          <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['Record Count']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true}/>
+          <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['Record Count']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
       </div>
       <div className="px-10 my-10 flex gap-8 justify-between">
@@ -131,7 +131,7 @@ const Page = () => {
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
             </div>
           </div>
-          <BarChart className="mt-6" data={stocks} index="name" categories={['Avability Stock']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true}/>
+          <BarChart className="mt-6" data={stocks} index="name" categories={['Avability Stock']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
         <Card className="w-1/2">
           <h2 className="text-2xl font-bold">Trade Series</h2>
@@ -140,7 +140,7 @@ const Page = () => {
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
             </div>
           </div>
-          <AreaChart data={demandForecast} index="date" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true}/>
+          <AreaChart data={demandForecast} index="date" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
       </div>
     </>
