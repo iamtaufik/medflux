@@ -2,12 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  --toastify-color-success: #1b81b0;
+}
 .background {
   background-image: url('../../public/bg-login.webp');
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  width: 2px;
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: #1b81b0;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #1b81b0;
 }
 
 @keyframes fadeIn {

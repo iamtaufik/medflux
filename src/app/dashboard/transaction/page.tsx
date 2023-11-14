@@ -124,7 +124,7 @@ const Page = () => {
   const [markers, setMarkers] = useState(positions);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: '',
+    googleMapsApiKey: String(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY),
   });
   return (
     <>

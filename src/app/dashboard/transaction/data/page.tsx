@@ -1,16 +1,12 @@
 'use client';
+import SearchIcon from '@/components/SearchIcon';
 import { DateRangePicker, Select, SelectItem, TextInput } from '@tremor/react';
 import id from 'date-fns/locale/id';
 import Link from 'next/link';
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const SearchIcon = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-    </svg>
-  );
-};
+
 
 const transactionData = [
   {
@@ -159,6 +155,18 @@ const transactionData = [
   },
 ];
 const Page = () => {
+  setTimeout(() => {
+    toast.success('Transaction Added Succesfully', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }, 500);
   return (
     <>
       <div className="flex justify-between items-center px-10">

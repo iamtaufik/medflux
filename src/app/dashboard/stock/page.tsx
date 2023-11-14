@@ -2,6 +2,7 @@
 import id from 'date-fns/locale/id';
 import { Card, DonutChart, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
 import React from 'react';
+import { ShowModal } from '@/components/Modal';
 
 const disease = [
   {
@@ -74,6 +75,10 @@ const stocks = [
 ];
 
 const Page = () => {
+
+  const handleAddStock = () => {
+    ShowModal()
+  }
   return (
     <>
       <div className="flex justify-between items-center px-10">
@@ -88,7 +93,7 @@ const Page = () => {
             </svg>
             Download Report
           </button>
-          <button className="flex bg-primary gap-2 text-white px-4 py-2 items-center border border-primary rounded-3xl">
+          <button onClick={handleAddStock} className="flex bg-primary gap-2 text-white px-4 py-2 items-center border border-primary rounded-3xl">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.6143 6.47143 12 6 12C5.52857 12 5.14286 11.6143 5.14286 11.1429V6.85714H0.857143C0.385714 6.85714 0 6.47143 0 6C0 5.52857 0.385714 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.385714 5.52857 0 6 0C6.47143 0 6.85714 0.385714 6.85714 0.857143V5.14286H11.1429C11.6143 5.14286 12 5.52857 12 6C12 6.47143 11.6143 6.85714 11.1429 6.85714Z"

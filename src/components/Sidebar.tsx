@@ -8,6 +8,7 @@ import { sidebarToggle } from '@/context/sidebarToggle';
 const Sidebar = () => {
   const { isActive, setIsActive } = sidebarToggle();
   const [transactionIsOpen, setTransactionIsOpen] = useState<boolean>(false);
+  const [stockIsOpen, setStockIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
   return (
     <div className={`w-1/5 min-h-screen bg-[#283342] py-7 flex z-50  flex-col gap-8 fixed transition-all duration-300 ${isActive ? 'ml-0' : '-ml-[304px]'}`}>
@@ -41,7 +42,7 @@ const Sidebar = () => {
               Dashboard
             </Link>
           </li>
-          <li className={` ${pathname === '/dashboard/transaction' ? 'bg-primary' : ''} ${transactionIsOpen ? "bg-black" : ""}`}>
+          <li className={` ${pathname === '/dashboard/transaction' ? 'bg-primary' : ''} ${transactionIsOpen ? 'bg-black' : ''}`}>
             <div className=" flex gap-4 items-center">
               <Link href="/dashboard/transaction" className="w-full h-ful flex gap-4 items-center cursor-pointer px-6 py-4">
                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
@@ -76,6 +77,38 @@ const Sidebar = () => {
               </li>
             </ul>
           </li>
+          <li className={` ${pathname === '/dashboard/stock' ? 'bg-primary' : ''} ${stockIsOpen ? 'bg-black' : ''}`}>
+            <div className=" flex gap-4 items-center">
+              <Link href="/dashboard/stock" className="w-full h-full cursor-pointer px-6 py-4 flex gap-4 items-center">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+                  <path
+                    d="M12.6 0H1.4C0.7 0 0 0.63 0 1.4V3.507C0 4.011 0.301 4.445 0.7 4.69V12.6C0.7 13.37 1.47 14 2.1 14H11.9C12.53 14 13.3 13.37 13.3 12.6V4.69C13.699 4.445 14 4.011 14 3.507V1.4C14 0.63 13.3 0 12.6 0ZM11.9 12.6H2.1V4.9H11.9V12.6ZM12.6 3.5H1.4V1.4H12.6V3.5Z"
+                    fill="white"
+                  />
+                  <path d="M9.2 8H5V9.4H9.2V8Z" fill="white" />
+                  <path d="M6.3999 6.5998L6.3999 10.7998L7.7999 10.7998L7.7999 6.5998L6.3999 6.5998Z" fill="white" />
+                </svg>
+                Stock
+              </Link>
+              <div className="w-max h-max px-6" onClick={() => setStockIsOpen(!stockIsOpen)}>
+                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" className={`w-2 h-2 transition-transform duration-75 ${stockIsOpen ? 'rotate-[360deg]' : '-rotate-180'}`}>
+                  <path
+                    d="M6.77405 0.209396L3.99642 2.98702L1.21879 0.209396C0.939597 -0.0697987 0.488591 -0.0697987 0.209396 0.209396C-0.0697987 0.488591 -0.0697987 0.939597 0.209396 1.21879L3.4953 4.5047C3.7745 4.78389 4.2255 4.78389 4.5047 4.5047L7.7906 1.21879C8.0698 0.939597 8.0698 0.488591 7.7906 0.209396C7.51141 -0.0626398 7.05324 -0.0697987 6.77405 0.209396Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+          </li>
+          <li className={` bg-black  ${stockIsOpen ? 'block ' : 'hidden'}`}>
+            <ul>
+              <li className={`cursor-pointer py-4 ${pathname === '/dashboard/stock/data' ? 'bg-primary' : ''}`}>
+                <Link href={'/dashboard/stock/data'} className="px-16">
+                  Data Stock
+                </Link>
+              </li>
+            </ul>
+          </li>
           <li className={` ${pathname === '/dashboard/suppliers' ? 'bg-primary' : ''}`}>
             <Link href="/dashboard/suppliers" className="w-full h-full cursor-pointer px-6 py-4 flex gap-4 items-center">
               <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
@@ -86,19 +119,6 @@ const Sidebar = () => {
                 />
               </svg>
               Suppliers
-            </Link>
-          </li>
-          <li className={` ${pathname === '/dashboard/stock' ? 'bg-primary' : ''}`}>
-            <Link href="/dashboard/stock" className="w-full h-full cursor-pointer px-6 py-4 flex gap-4 items-center">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                <path
-                  d="M12.6 0H1.4C0.7 0 0 0.63 0 1.4V3.507C0 4.011 0.301 4.445 0.7 4.69V12.6C0.7 13.37 1.47 14 2.1 14H11.9C12.53 14 13.3 13.37 13.3 12.6V4.69C13.699 4.445 14 4.011 14 3.507V1.4C14 0.63 13.3 0 12.6 0ZM11.9 12.6H2.1V4.9H11.9V12.6ZM12.6 3.5H1.4V1.4H12.6V3.5Z"
-                  fill="white"
-                />
-                <path d="M9.2 8H5V9.4H9.2V8Z" fill="white" />
-                <path d="M6.3999 6.5998L6.3999 10.7998L7.7999 10.7998L7.7999 6.5998L6.3999 6.5998Z" fill="white" />
-              </svg>
-              Stock
             </Link>
           </li>
 
