@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={`${manrope.className} scroll-smooth`}>
         {children}
         <ToastContainer />
       </body>

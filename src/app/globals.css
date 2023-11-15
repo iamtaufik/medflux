@@ -35,6 +35,28 @@ body {
   background: #1b81b0;
 }
 
+/* width */
+.scroll-x::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+.scroll-x::-webkit-scrollbar-track {
+  height: 10px;
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scroll-x::-webkit-scrollbar-thumb {
+  background: #1b81b0;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+.scroll-x::-webkit-scrollbar-thumb:hover {
+  background: #1b81b0;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

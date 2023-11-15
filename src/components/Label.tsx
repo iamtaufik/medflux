@@ -10,13 +10,16 @@ interface IProps {
 
 const Label = ({ title, value, icon, percentage, linkName }: IProps) => {
   return (
-    <div className="px-8 py-6 border  w-1/3 rounded-3xl min-h-max">
+    <div className="px-8 py-6 border  w-1/3 rounded-3xl min-h-max transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
       <div className="flex whitespace-nowrap gap-4 items-center mb-4">
         {icon}
         <h2 className="text-black text-lg font-medium">{title}</h2>
       </div>
       <div className="flex justify-between items-center">
-        <p className="text-3xl font-semibold">{value}</p>
+        <div className="flex gap-2 items-center">
+          <p className="text-3xl font-semibold">{value}</p>
+          {!value.includes('Rp.') && <p className="text-base font-light">Products</p>}
+        </div>
         {percentage ? (
           <div className="bg-[#0A9D4C] bg-opacity-10 px-2 py-2 rounded-xl flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4  text-[#0A9D4C]">
@@ -26,10 +29,14 @@ const Label = ({ title, value, icon, percentage, linkName }: IProps) => {
           </div>
         ) : (
           linkName && (
-            <div>
-              <a href="#">
+            <div >
+              <a href="#" className='flex gap-2 items-center'>
                 {linkName}
-                <span className="font-bold">{'>>'}</span>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </div>
               </a>
             </div>
           )

@@ -1,4 +1,5 @@
 'use client';
+import Table from '@/components/Table';
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { Card } from '@tremor/react';
 import Image from 'next/image';
@@ -63,15 +64,15 @@ const Page = () => {
               </div>
               <div className="flex justify-between ">
                 <div>
-                  <h2 className="text-xl font-semibold text-center">10</h2>
+                  <h2 className="text-2xl font-semibold text-center">10</h2>
                   <p className="text-sm font-normal text-center">Agreement</p>
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-center">2</h2>
+                  <h2 className="text-2xl font-semibold text-center">2</h2>
                   <p className="text-sm font-normal text-center">On Going</p>
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-center">32</h2>
+                  <h2 className="text-2xl font-semibold text-center">32</h2>
                   <p className="text-sm font-normal text-center">Notifications</p>
                 </div>
               </div>
@@ -281,60 +282,90 @@ const Page = () => {
         </div>
       </div>
       <div className="px-10 my-10">
-        <div className=" rounded-xl border py-4">
-          <table className="table-auto w-full ">
-            <thead className="border-b ">
-              <tr className="text-center">
-                <th>No</th>
-                <th>Date Time</th>
-                <th>Medicine Name</th>
-                <th>Struct Number</th>
-                <th>Total Sales</th>
-                <th>Action</th>
+        <Table
+          paggination={{
+            total: 10,
+            page: 1,
+            limit: 10,
+            setLimit: (limit: number) => {},
+            setOffset: (offset: number) => {},
+          }}
+        >
+          <thead className="border-b ">
+            <tr className="whitespace-nowrap">
+              <th scope="col" className="px-6 py-3 ">
+                No
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1 justify-center ">
+                  <span>Distributor</span>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1 justify-center ">
+                  <span>Distance</span>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1 justify-center ">
+                  <span>Address</span>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1 justify-center ">
+                  <span>Stock</span>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {distributorsData.map((data, index) => (
+              <tr key={index} className="text-center border font-normal whitespace-nowrap">
+                <td scope="col" className="px-6 py-3 ">
+                  {index + 1}
+                </td>
+                <td scope="col" className="px-6 py-3 ">
+                  {data.name}
+                </td>
+                <td scope="col" className="px-6 py-3 ">
+                  {data.distance}
+                </td>
+                <td scope="col" className="px-6 py-3 ">
+                  {data.address}
+                </td>
+                <td scope="col" className="px-6 py-3 ">
+                  {data.stock}
+                </td>
+                <td scope="col" className="px-6 py-3 ">
+                  <button className="bg-primary text-white px-4 py-2 rounded-full">Buy Now</button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {distributorsData.map((data, index) => (
-                <tr key={index} className="text-center border h-14 font-normal">
-                  <td>{index + 1}</td>
-                  <td>{data.name}</td>
-                  <td>{data.distance}</td>
-                  <td>{data.address}</td>
-                  <td>{data.stock}</td>
-                  <td>
-                    <button className='bg-primary text-white px-4 py-2 rounded-full'>Buy Now</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="flex justify-between my-4 px-4">
-            <p className="font-semibold">Showing 1 - 8 results of 298</p>
-            <div className="flex gap-2">
-              <div>
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="27" height="27" rx="13.5" transform="matrix(-1 0 0 1 27 0)" fill="white" />
-                  <rect x="-0.2" y="0.2" width="26.6" height="26.6" rx="13.3" transform="matrix(-1 0 0 1 26.6 0)" stroke="#1D242E" strokeOpacity="0.3" strokeWidth="0.4" />
-                  <path
-                    d="M14.7906 16.774L12.013 13.9964L14.7906 11.2188C15.0698 10.9396 15.0698 10.4886 14.7906 10.2094C14.5114 9.9302 14.0604 9.9302 13.7812 10.2094L10.4953 13.4953C10.2161 13.7745 10.2161 14.2255 10.4953 14.5047L13.7812 17.7906C14.0604 18.0698 14.5114 18.0698 14.7906 17.7906C15.0626 17.5114 15.0698 17.0532 14.7906 16.774Z"
-                    fill="#1D242E"
-                    fillOpacity="0.3"
-                  />
-                </svg>
-              </div>
-              <p className="font-normal">Page 01</p>
-              <div>
-                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.2" y="0.2" width="26.6" height="26.6" rx="13.3" stroke="#1B81B0" strokeWidth="0.4" />
-                  <path
-                    d="M12.2094 16.774L14.987 13.9964L12.2094 11.2188C11.9302 10.9396 11.9302 10.4886 12.2094 10.2094C12.4886 9.9302 12.9396 9.9302 13.2188 10.2094L16.5047 13.4953C16.7839 13.7745 16.7839 14.2255 16.5047 14.5047L13.2188 17.7906C12.9396 18.0698 12.4886 18.0698 12.2094 17.7906C11.9374 17.5114 11.9302 17.0532 12.2094 16.774Z"
-                    fill="#1B81B0"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </>
   );

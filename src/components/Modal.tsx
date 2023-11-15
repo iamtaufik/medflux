@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Input from './Input';
 import { Select, SelectItem } from '@tremor/react';
+import { toast } from 'react-toastify';
 
 interface ModalProps {
   isOpen?: boolean;
@@ -9,6 +10,19 @@ interface ModalProps {
 
 const Modal = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(props.isOpen || false);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    toast.success('Medicine Added to iventory', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  };
 
   return (
     <div className={`relative z-50 n ${!isOpen && 'hidden'} `} aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -29,8 +43,8 @@ const Modal = (props: ModalProps) => {
                   </svg>
                 </div>
               </div>
-              <div className="overflow-y-scroll scroll w-full h-full pr-10">
-                <form className="flex justify-between gap-60">
+              <div className="overflow-y-scroll scroll w-full h-full px-2">
+                <form className="flex justify-between gap-60" onSubmit={handleSubmit}>
                   <div className="w-1/2">
                     <Input name="Medicine Name" placeholder="Medicine Name" type="text" className="h-0 py-6" />
                     <Input name="Medicine ID" placeholder="Enter medicine ID" type="text" className="h-0 py-6" />
@@ -62,12 +76,14 @@ const Modal = (props: ModalProps) => {
                     <Input name="Total Price" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
                     <Input name="Price of Lost" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
                     <Input name="Price of Over" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
-                    <Input name="Additional Information" placeholder="Enter Additional Information" type="text" className="h-0 py-6" />
+                    <Input name="Additional Information" placeholder="Enter Additional Information" type="text" className="h-0 py-6" isRequired={false} />
                     <div className="mt-6 flex justify-end gap-4">
-                      <button onClick={() => setIsOpen(false)} className="border border-primary rounded-full py-2 px-6 cursor-pointer">
+                      <button onClick={() => setIsOpen(false)} className="border border-primary rounded-full py-2 px-6 cursor-pointer transition-colors duration-300 hover:bg-primary hover:text-white">
                         Cancel
                       </button>
-                      <button className="border border-primary bg-primary text-white rounded-full py-2 px-6 cursor-pointer">Add to iventory</button>
+                      <button type="submit" className="border border-primary bg-primary text-white rounded-full py-2 px-6 cursor-pointer transition-colors duration-300 hover:bg-[#13668D] hover:text-white">
+                        Add to iventory
+                      </button>
                     </div>
                   </div>
                 </form>
