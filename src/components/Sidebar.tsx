@@ -102,7 +102,7 @@ const Sidebar = () => {
           </li>
           <li className={` bg-black  ${stockIsOpen ? 'block ' : 'hidden'}`}>
             <ul>
-              <li className={`cursor-pointer py-4 ${pathname === '/dashboard/stock/data' ? 'bg-primary' : ''}`}>
+              <li className={`cursor-pointer py-4 ${pathname?.includes('/dashboard/stock/data') ? 'bg-primary' : ''}`}>
                 <Link href={'/dashboard/stock/data'} className="px-16">
                   Data Stock
                 </Link>

@@ -1,4 +1,5 @@
-"use client"
+'use client';
+import Table from '@/components/Table';
 import Link from 'next/link';
 import React from 'react';
 
@@ -14,20 +15,105 @@ const Page = () => {
         </h1>
         <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
       </div>
-      <div className="px-10 flex justify-between">
-        <div className="w-2/3"></div>
-        <div className="w-1/3 flex flex-col justify-between gap-56">
-          <ul className="font-semibold flex flex-col gap-3">
-            <li>Sub Total</li>
-            <li>Biaya Service</li>
-            <li>Biaya Embalase</li>
-            <li>Ongkos Kirim</li>
-            <li>Biaya Lainnya</li>
-          </ul>
-          <div className="bg-primary h-36 text-white flex items-center justify-center">
-            <div className="flex gap-2">
+      <div className="px-10 flex gap-10 my-10 ">
+        <div className="w-9/12 border rounded-xl overflow-hidden">
+          <div className="relative w-full scroll-x overflow-x-auto py-2">
+            <table className="table-auto  w-full ">
+              <thead className="border-b ">
+                <tr className="whitespace-nowrap">
+                  <th scope="col" className="px-6 py-3 ">
+                    No
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Product
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Quantity
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Unit
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Pricing Options
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Selling Price
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Sub Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="text-center border font-normal whitespace-nowrap ">
+                  <td className="px-6 py-3">1</td>
+                  <td className="px-6 py-3">Augmentin</td>
+                  <td className="px-6 py-3">625</td>
+                  <td className="px-6 py-3">ST30</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                </tr>
+                <tr className="text-center border font-normal whitespace-nowrap ">
+                  <td className="px-6 py-3">2</td>
+                  <td className="px-6 py-3">Augmentin</td>
+                  <td className="px-6 py-3">625</td>
+                  <td className="px-6 py-3">ST30</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                  <td className="px-6 py-3">Rp. 1,240,455</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="w-3/12  rounded-xl flex flex-col border justify-between ">
+          <div>
+            <h2 className="text-xl font-semibold p-4">Cashier Information</h2>
+            <hr />
+            <ul className="font-normal text-base flex flex-col gap-3">
+              <hr />
+              <li className="px-4 py-2 flex justify-between">
+                <p>Sub Total</p>
+                <p>Rp. 0,00</p>
+              </li>
+              <hr />
+              <li className="px-4 py-2 flex justify-between">
+                <p>Biaya Service</p>
+                <p>Rp. 0,00</p>
+              </li>
+              <hr />
+              <li className="px-4 py-2 flex justify-between">
+                <p>Biaya Embalase</p>
+                <p>Rp. 0,00</p>
+              </li>
+              <hr />
+              <li className="px-4 py-2 flex justify-between">
+                <p>Ongkos Kirim</p>
+                <p>Rp. 0,00</p>
+              </li>
+              <hr />
+              <li className="px-4 py-2 flex justify-between">
+                <p>Biaya Lainnya</p>
+                <p>Rp. 0,00</p>
+              </li>
+            </ul>
+          </div>
+          <hr />
+          <div className=" p-4  text-black flex flex-col gap-10">
+            <div className="font-bold flex gap-2">
               <p className="text-sm">Rp.</p>
-              <p className="text-5xl">0,00</p>
+              <p className="text-5xl">1,240,455</p>
+            </div>
+            <div className="flex justify-between">
+              <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
+                <span>Cancel</span>
+                <span className='bg-primary rounded-md text-white px-1 font-semibold'>F4</span>
+              </button>
+              <button className="flex gap-2 text-white px-4 py-2 border bg-primary border-primary rounded-3xl items-center transition-colors duration-300 hover:bg-[#13668D] hover:text-white">
+                <span>Pay Now</span>
+                <span className='bg-white rounded-md text-primary px-1 font-semibold'>F2</span>
+              </button>
             </div>
           </div>
         </div>

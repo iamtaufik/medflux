@@ -212,6 +212,9 @@ const Page = () => {
               <th scope="col" className="px-6 py-3 ">
                 Real Stock
               </th>
+              <th scope="col" className="px-6 py-3 ">
+                Detail
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -228,6 +231,16 @@ const Page = () => {
                 <td className="px-6 py-3">{stock.remain}</td>
                 <td className="px-6 py-3">{stock.stockSystem}</td>
                 <td className="px-6 py-3">{stock.stockReal}</td>
+                <td className="px-6 py-3">
+                  <Link href={`/dashboard/stock/data/detail/${stock.code}`} className="flex gap-2 items-center">
+                    View Full Detail
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </div>
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
