@@ -3,9 +3,11 @@ import Announcment from '@/components/Announcment';
 import Card from '@/components/Card';
 import Label from '@/components/Label';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Dashboard = () => {
   const [isNotify, setIsNotify] = useState<boolean>(true);
+  const router = useRouter();
   return (
     <>
       <div className="flex justify-between items-center px-10">
@@ -50,6 +52,7 @@ const Dashboard = () => {
             </div>
           }
           percentage="4.8%"
+          onClick={() => router.push('/dashboard/medicine/stock-sold')}
         />
 
         <Label
@@ -66,7 +69,8 @@ const Dashboard = () => {
               </svg>
             </div>
           }
-          linkName="Check Stock"
+          onClick={() => router.push('/dashboard/medicine/avaliable')}
+          linkName="Check"
         />
         <Label
           title="Medicine Expired"
@@ -81,7 +85,8 @@ const Dashboard = () => {
               </svg>
             </div>
           }
-          linkName="See Now"
+          onClick={() => router.push('/dashboard/medicine/expired')}
+          linkName="Check"
         />
       </div>
       <div className="flex w-full px-10 justify-between">

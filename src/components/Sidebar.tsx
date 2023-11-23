@@ -31,7 +31,7 @@ const Sidebar = () => {
       </div>
       <div>
         <ul className="text-white">
-          <li className={` ${pathname === '/dashboard' ? 'bg-primary' : ''}`}>
+          <li className={` ${pathname?.startsWith('/dashboard/medicine') || pathname === '/dashboard' ? 'bg-primary' : ''}`}>
             <Link href="/dashboard" className="w-full h-full cursor-pointer px-6 py-4 flex gap-4 items-center">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
                 <path

@@ -1,16 +1,15 @@
-import React from 'react';
-
 interface IProps {
   title: string;
   value: string;
   icon: React.ReactNode;
   percentage?: string;
   linkName?: string;
+  onClick?: () => void;
 }
 
-const Label = ({ title, value, icon, percentage, linkName }: IProps) => {
+const Label = ({ title, value, icon, percentage, linkName, onClick }: IProps) => {
   return (
-    <div className="px-8 py-6 border  w-1/3 rounded-3xl min-h-max transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+    <div onClick={onClick} className="cursor-pointer px-8 py-6 border  w-1/3 rounded-3xl min-h-max transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
       <div className="flex whitespace-nowrap gap-4 items-center mb-4">
         {icon}
         <h2 className="text-black text-lg font-medium">{title}</h2>
@@ -29,15 +28,15 @@ const Label = ({ title, value, icon, percentage, linkName }: IProps) => {
           </div>
         ) : (
           linkName && (
-            <div >
-              <a href="#" className='flex gap-2 items-center'>
+            <div>
+              <div className="flex gap-2 items-center">
                 {linkName}
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
                   </svg>
                 </div>
-              </a>
+              </div>
             </div>
           )
         )}
