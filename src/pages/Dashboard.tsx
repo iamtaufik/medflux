@@ -15,27 +15,50 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <p className="text-base font-normal">A quick data overview of the inventory</p>
         </div>
-        <div className={`p-2 rounded-lg border border-[#F5CE00] bg-[#F5CE00] bg-opacity-10 flex items-center gap-2 transition-transform ease-in-out duration-300 ${isNotify ? 'scale-100' : 'scale-0'}`}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[#F5CE00]">
-            <path
-              fillRule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
-              clipRule="evenodd"
-            />
-          </svg>
 
-          <p>
-            Your inventory is running low, it's time to restock the items now!{' '}
-            <a href="#" className="font-bold">
-              Restock Now
-            </a>
-          </p>
-          <div className="cursor-pointer" onClick={() => setIsNotify(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 text-black font-bold">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        {isNotify ? (
+          <div className="p-2 rounded-lg border border-[#F5CE00] bg-[#F5CE00] bg-opacity-10  items-center gap-2 transition ease-in-out duration-300 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[#F5CE00]">
+              <path
+                fillRule="evenodd"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                clipRule="evenodd"
+              />
             </svg>
+
+            <p>
+              Your inventory is running low, it's time to restock the items now!{' '}
+              <a href="#" className="font-bold">
+                Restock Now
+              </a>
+            </p>
+            <div className="cursor-pointer" onClick={() => setIsNotify(false)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 text-black font-bold">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-primary flex w-max p-2 rounded-2xl items-center gap-2 text-white">
+            <div>
+              <svg width="17" height="17" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.4774 9.81576H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9.4774 7.02474H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6.50073 4.23958H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.60533 0.833008C9.60533 0.833008 4.48733 0.835674 4.47933 0.835674C2.63933 0.847008 1.5 2.05767 1.5 3.90434V10.035C1.5 11.891 2.648 13.1063 4.504 13.1063C4.504 13.1063 9.62133 13.1043 9.63 13.1043C11.47 13.093 12.61 11.8817 12.61 10.035V3.90434C12.61 2.04834 11.4613 0.833008 9.60533 0.833008Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span>Financial Report</span>
+          </div>
+        )}
       </div>
       <div className="my-6 flex w-full gap-6 justify-between px-10">
         <Label
@@ -102,7 +125,7 @@ const Dashboard = () => {
         </div>
         <div className="w-1/3 ">
           <h2 className="text-2xl font-bold">
-            Announcment <span className="bg-[#F0483E] text-white  px-2 rounded-3xl text-base">2</span>
+            Announcement <span className="bg-[#F0483E] text-white  px-2 rounded-3xl text-base">2</span>
           </h2>
           <p className="text-base font-normal mt-2">Let's check our recomendation</p>
           <div className="flex flex-col my-4 gap-6">

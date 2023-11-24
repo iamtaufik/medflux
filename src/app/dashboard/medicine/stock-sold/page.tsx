@@ -5,6 +5,7 @@ import React from 'react';
 const stockSold = [
   {
     name: 'Fituno Kaplet-Blister',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -12,6 +13,7 @@ const stockSold = [
   },
   {
     name: 'Paracetamol Tablet',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -19,6 +21,7 @@ const stockSold = [
   },
   {
     name: 'Augmentin 625 Duo Tablet',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -26,6 +29,7 @@ const stockSold = [
   },
   {
     name: 'Asifit Kaplet-Blister',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -33,6 +37,7 @@ const stockSold = [
   },
   {
     name: 'Fituno Kaplet-Blister',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -40,6 +45,7 @@ const stockSold = [
   },
   {
     name: 'Paracetamol Tablet',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -47,6 +53,7 @@ const stockSold = [
   },
   {
     name: 'Augmentin 625 Duo Tablet',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -54,6 +61,7 @@ const stockSold = [
   },
   {
     name: 'Asifit Kaplet-Blister',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -61,6 +69,7 @@ const stockSold = [
   },
   {
     name: 'Fituno Kaplet-Blister',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -68,6 +77,7 @@ const stockSold = [
   },
   {
     name: 'Paracetamol Tablet',
+    code: 'OB91182120',
     unit: 'ST30',
     soldAmount: 150,
     totalSales: 'Rp. 1.500.000',
@@ -214,6 +224,9 @@ const Page = () => {
                 No
               </th>
               <th scope="col" className="px-6 py-3 ">
+                Medicine Code
+              </th>
+              <th scope="col" className="px-6 py-3 ">
                 <div className="flex items-center gap-1 justify-center ">
                   <span>Medicine Name</span>
                   <div className="cursor-pointer">
@@ -265,6 +278,7 @@ const Page = () => {
             {stockSold.map((stock, index) => (
               <tr key={index} className="text-center border h-10 font-normal  whitespace-nowrap ">
                 <td className="px-6 py-3">{index + 1}</td>
+                <td className="px-6 py-3">{stock.code}</td>
                 <td className="px-6 py-3">{stock.name}</td>
                 <td className="px-6 py-3">{stock.unit}</td>
                 <td className="px-6 py-3">{stock.soldAmount}</td>

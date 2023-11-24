@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 
 interface IProps {
   value: string;
@@ -6,8 +6,9 @@ interface IProps {
 }
 
 const Announcment = ({ value, detail }: IProps) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   return (
-    <div className="flex border rounded-2xl px-4 py-3 justify-between items-center">
+    <div onClick={() => setIsClicked(true)} className={`flex  border rounded-2xl px-4 py-3 justify-between items-center  ${isClicked ? '' : 'bg-[#F0483E] bg-opacity-10 border-[#F0483E]'}`}>
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
           <h3 className="text-2xl font-semibold">{value}</h3>
