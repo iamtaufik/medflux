@@ -9,7 +9,7 @@ interface IProps {
 
 const Label = ({ title, value, icon, percentage, linkName, onClick }: IProps) => {
   return (
-    <div onClick={onClick} className="cursor-pointer px-8 py-6 border  w-1/3 rounded-3xl min-h-max transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+    <div onClick={onClick} className="cursor-pointer p-4 md:px-8 md:py-6 border w-full md:w-1/3 rounded-3xl min-h-max transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
       <div className="flex whitespace-nowrap gap-4 items-center mb-4">
         {icon}
         <h2 className="text-black text-lg font-medium">{title}</h2>

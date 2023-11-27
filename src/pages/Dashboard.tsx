@@ -10,14 +10,14 @@ const Dashboard = () => {
   const router = useRouter();
   return (
     <>
-      <div className="flex justify-between items-center px-10">
-        <div>
-          <h1 className="text-2xl font-bold">Dashboard</h1>
+      <div className="flex justify-between md:items-center px-4 md:px-10 gap-4 flex-col md:flex-row">
+        <div className="order-2 md:order-1">
+          <h1 className="text-xl md:text-2xl font-bold">Dashboard</h1>
           <p className="text-base font-normal">A quick data overview of the inventory</p>
         </div>
 
         {isNotify ? (
-          <div className="p-2 rounded-lg border border-[#F5CE00] bg-[#F5CE00] bg-opacity-10  items-center gap-2 transition ease-in-out duration-300 flex">
+          <div className="order-1 md:order-2 p-2 rounded-lg border border-[#F5CE00] bg-[#F5CE00] bg-opacity-10  items-center gap-2 transition ease-in-out duration-300 flex">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[#F5CE00]">
               <path
                 fillRule="evenodd"
@@ -39,7 +39,7 @@ const Dashboard = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-primary flex w-max p-2 rounded-2xl items-center gap-2 text-white">
+          <div className="order-1 md:order-2 bg-primary flex w-max p-2 rounded-2xl items-center gap-2 text-white">
             <div>
               <svg width="17" height="17" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.4774 9.81576H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -60,7 +60,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-      <div className="my-6 flex w-full gap-6 justify-between px-10">
+      <div className="my-6 flex w-full gap-6 justify-between flex-col px-4 md:px-10 md:flex-row">
         <Label
           title="Drug Stock Sold"
           value="3,529"
@@ -112,8 +112,8 @@ const Dashboard = () => {
           linkName="Check"
         />
       </div>
-      <div className="flex w-full px-10 justify-between">
-        <div className="w-1/2   ">
+      <div className="flex w-full px-4 justify-between flex-col md:flex-row md:px-10">
+        <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-bold">Recomendations</h2>
           <p className="text-base font-normal mt-2">Machine Learning Analytics</p>
           <div className="flex flex-col my-2">
@@ -123,7 +123,7 @@ const Dashboard = () => {
             <Card title="Paracetamol Tablet" quantity={5} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
           </div>
         </div>
-        <div className="w-1/3 ">
+        <div className="w-full md:w-1/3 ">
           <h2 className="text-2xl font-bold">
             Announcement <span className="bg-[#F0483E] text-white  px-2 rounded-3xl text-base">2</span>
           </h2>

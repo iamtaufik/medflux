@@ -124,7 +124,7 @@ const Page = () => {
                 />
               </svg>
             </div>
-            <h2 className="font-semibold text-lg">Top 5 Best Seller</h2>
+            <h2 className="font-medium text-lg">Top 5 Best Seller</h2>
           </div>
 
           <div className="relative w-3/5 scroll overflow-y-scroll py-2 px-4">
@@ -174,7 +174,7 @@ const Page = () => {
                 <path d="M8 18L16 10" stroke="#F0483E" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" />
               </svg>
             </div>
-            <h2 className="font-semibold text-lg">5 Product Less Popular</h2>
+            <h2 className="font-medium text-lg">5 Product Less Popular</h2>
           </div>
 
           <div className="relative w-3/5 scroll overflow-y-scroll py-2 px-4">

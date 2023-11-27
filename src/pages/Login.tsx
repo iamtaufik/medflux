@@ -8,7 +8,7 @@ const Login = () => {
   const router = useRouter();
   return (
     <section className="min-h-screen w-full flex">
-      <div className="relative w-1/2">
+      <div className="relative w-1/2 hidden md:block">
         <div className="background"></div>
         <div className="absolute bottom-14 mx-20 border rounded-tl-[60px] rounded-tr-[40px] rounded-br-[40px] p-6 bg-transparent backdrop-blur-md ">
           <p className="font-medium text-white text-2xl leading-normal tracking-wide ">
@@ -17,7 +17,7 @@ const Login = () => {
           <Image src="/logo-white.svg" width={101} height={30} className="mt-2" alt="Logo" />
         </div>
       </div>
-      <div className="bg-white px-36 py-28 w-1/2">
+      <div className="bg-white w-full px-4 py-10  md:px-36 md:py-28 md:w-1/2">
         <div className="w-full ">
           <Image src="/logo.svg" alt="Logo" width={193} height={40} />
           <div className="my-8 text-black">
