@@ -33,11 +33,11 @@ const Card = ({ title, quantity, distributors, detailLink }: IProps) => {
           <div onClick={() => setShowDetail(!showDetail)} className="cursor-pointer">
             {showDetail ? (
               <svg width="16" height="10" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 14.5L12.9702 2.65223C13.7842 1.77309 15.1832 1.80205 15.9602 2.71411L26 14.5" stroke="#1B81B0" stroke-width="3" stroke-linecap="round" />
+                <path d="M2 14.5L12.9702 2.65223C13.7842 1.77309 15.1832 1.80205 15.9602 2.71411L26 14.5" stroke="#1B81B0" strokeWidth="3" strokeLinecap="round" />
               </svg>
             ) : (
               <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
-                <path d="M15 1.5L8 8.5L1 1.5" stroke="#130F26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15 1.5L8 8.5L1 1.5" stroke="#130F26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             )}
           </div>
@@ -56,7 +56,7 @@ const Card = ({ title, quantity, distributors, detailLink }: IProps) => {
               <button className="cursor-pointer border px-2 p-1 border-primary text-primary rounded-3xl flex items-center gap-2">
                 Detail
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="">
-                  <path d="M7.58317 2.91699L11.6665 7.00033L7.58317 11.0837M2.9165 2.91699L6.99984 7.00033L2.9165 11.0837" stroke="#1B81B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7.58317 2.91699L11.6665 7.00033L7.58317 11.0837M2.9165 2.91699L6.99984 7.00033L2.9165 11.0837" stroke="#1B81B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>

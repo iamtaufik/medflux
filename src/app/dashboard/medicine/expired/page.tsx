@@ -105,16 +105,16 @@ const Page = () => {
             <div className="bg-[#F5CE00] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M20.1044 3.38477H9.43431C5.71596 3.38477 3.38477 6.01752 3.38477 9.74325V19.7967C3.38477 23.5224 5.70489 26.1552 9.43431 26.1552H20.1032C23.8338 26.1552 26.1552 23.5224 26.1552 19.7967V9.74325C26.1552 6.01752 23.8338 3.38477 20.1044 3.38477Z"
                   stroke="#F5CE00"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-                <path d="M14.7634 19.6929V14.7695" stroke="#F5CE00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M14.7572 10.0978H14.7695" stroke="#F5CE00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.7634 19.6929V14.7695" stroke="#F5CE00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14.7572 10.0978H14.7695" stroke="#F5CE00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <h2 className="font-medium text-lg">Almost Expired</h2>

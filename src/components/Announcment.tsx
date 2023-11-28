@@ -18,7 +18,7 @@ const Announcment = ({ value, detail }: IProps) => {
       </div>
       <div>
         <svg width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1.5L8 8.5L1 15.5" stroke="#313C4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M1 1.5L8 8.5L1 15.5" stroke="#313C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>

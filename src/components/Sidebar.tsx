@@ -47,10 +47,10 @@ const Sidebar = () => {
             <div className=" flex gap-4 items-center">
               <Link href="/dashboard/transaction" className="w-full h-ful flex gap-4 items-center cursor-pointer px-6 py-4">
                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                  <path d="M9.8231 10.7621V2.81836" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M12.2017 8.37305L9.82304 10.7628L7.44434 8.37305" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M4.03159 1.23535V9.17906" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M1.65283 3.62507L4.03154 1.23535L6.41024 3.62507" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M9.8231 10.7621V2.81836" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12.2017 8.37305L9.82304 10.7628L7.44434 8.37305" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4.03159 1.23535V9.17906" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1.65283 3.62507L4.03154 1.23535L6.41024 3.62507" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Transaction
               </Link>

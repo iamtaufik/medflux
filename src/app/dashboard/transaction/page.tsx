@@ -179,14 +179,14 @@ const Page = () => {
           icon={
             <div className="bg-[#FFA800] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.4624 17.0242L11.8631 12.6044L15.7421 15.6515L19.07 11.3564" stroke="#FFA800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="22.949" cy="5.00227" r="2.18391" stroke="#FFA800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M8.4624 17.0242L11.8631 12.6044L15.7421 15.6515L19.07 11.3564" stroke="#FFA800" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="22.949" cy="5.00227" r="2.18391" stroke="#FFA800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path
                   d="M17.1874 3.77539H8.93018C5.50872 3.77539 3.38721 6.19849 3.38721 9.61995V18.8028C3.38721 22.2242 5.46712 24.6369 8.93018 24.6369H18.7058C22.1272 24.6369 24.2488 22.2242 24.2488 18.8028V10.8055"
                   stroke="#FFA800"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>

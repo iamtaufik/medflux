@@ -106,13 +106,13 @@ const Page = () => {
             <div className="bg-[#F49200] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M16.129 5.6409L18.3783 10.1344C18.5987 10.5755 19.0242 10.8814 19.5176 10.9522L24.5493 11.6764C25.7924 11.8559 26.2871 13.3626 25.3874 14.2259L21.7489 17.7221C21.3914 18.0659 21.2286 18.5601 21.3132 19.0455L22.1719 23.9813C22.3833 25.2023 21.0838 26.1339 19.9726 25.5562L15.4754 23.2242C15.0345 22.9954 14.5065 22.9954 14.0644 23.2242L9.56716 25.5562C8.45599 26.1339 7.15643 25.2023 7.36918 23.9813L8.22658 19.0455C8.31117 18.5601 8.1484 18.0659 7.79083 17.7221L4.15232 14.2259C3.25262 13.3626 3.74733 11.8559 4.9905 11.6764L10.0221 10.9522C10.5156 10.8814 10.9423 10.5755 11.1628 10.1344L13.4107 5.6409C13.9669 4.52986 15.5728 4.52986 16.129 5.6409Z"
                   stroke="#F49200"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -154,16 +154,16 @@ const Page = () => {
             <div className="bg-[#F0483E] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M11.8451 26.62C11.8451 26.62 21.6104 23.5869 21.6104 15.2253C21.6104 6.86237 21.9642 6.20953 21.1801 5.40523C20.3973 4.60092 13.1256 2 11.8451 2C10.5646 2 3.2928 4.60092 2.50872 5.40523C1.72592 6.20953 2.07977 6.86237 2.07977 15.2253C2.07977 23.5869 11.8451 26.62 11.8451 26.62Z"
                   stroke="#F0483E"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-                <path d="M16 18L8 10" stroke="#F0483E" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" />
-                <path d="M8 18L16 10" stroke="#F0483E" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" />
+                <path d="M16 18L8 10" stroke="#F0483E" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round" />
+                <path d="M8 18L16 10" stroke="#F0483E" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round" />
               </svg>
             </div>
             <h2 className="font-medium text-lg">5 Product Less Popular</h2>

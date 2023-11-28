@@ -43,17 +43,17 @@ const Dashboard = () => {
           <div className="order-1 md:order-2 bg-primary flex w-max p-2 rounded-2xl items-center gap-2 text-white">
             <div>
               <svg width="17" height="17" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.4774 9.81576H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M9.4774 7.02474H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6.50073 4.23958H4.66406" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9.4774 9.81576H4.66406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9.4774 7.02474H4.66406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M6.50073 4.23958H4.66406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M9.60533 0.833008C9.60533 0.833008 4.48733 0.835674 4.47933 0.835674C2.63933 0.847008 1.5 2.05767 1.5 3.90434V10.035C1.5 11.891 2.648 13.1063 4.504 13.1063C4.504 13.1063 9.62133 13.1043 9.63 13.1043C11.47 13.093 12.61 11.8817 12.61 10.035V3.90434C12.61 2.04834 11.4613 0.833008 9.60533 0.833008Z"
                   stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
