@@ -123,7 +123,7 @@ const Page = () => {
           <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['Record Count']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
       </div>
-      <div className="px-4 md:px-10  flex gap-8 justify-between flex-col md:flex-row">
+      <div className="px-4 md:px-10 mb-10  flex gap-8 justify-between flex-col md:flex-row">
         <Card className="md:w-1/2">
           <h2 className="text-xl font-bold">Stock Trend</h2>
           <div className="w-full flex gap-2 justify-end my-4">

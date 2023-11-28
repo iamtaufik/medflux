@@ -7,11 +7,11 @@ interface ModalProps {
   isOpen?: boolean;
 }
 
-const Modal = (props: ModalProps) => {
+const TransactionModal = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(props.isOpen || false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success('Medicine Added to iventory', {
+    toast.success('Transaction Added Succesfully', {
       position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
@@ -32,7 +32,7 @@ const Modal = (props: ModalProps) => {
             {/* Content */}
             <div className="w-full p-6 md:p-10 h-full bg-white rounded-2xl ">
               <div className="flex justify-between items-center ">
-                <h1 className="text-black text-xl font-bold">Add Stock Medicine</h1>
+                <h1 className="text-black text-xl font-bold">Add Transaction</h1>
                 <div onClick={() => setIsOpen(false)} className="cursor-pointer">
                   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -42,46 +42,23 @@ const Modal = (props: ModalProps) => {
                   </svg>
                 </div>
               </div>
-              <div className="overflow-y-scroll scroll w-full h-full px-2">
+              <div className="overflow-y-scroll scroll w-full h-full px-2 ">
                 <form className="flex justify-between gap-4 md:gap-60 flex-col md:flex-row" onSubmit={handleSubmit}>
                   <div className="w-full md:w-1/2">
                     <Input name="Medicine Name" placeholder="Medicine Name" type="text" className="h-0 py-6" />
-                    <Input name="Medicine ID" placeholder="Enter medicine ID" type="text" className="h-0 py-6" />
+                    <Input name="Struct Number" placeholder="Enter struct number" type="text" className="h-0 py-6" />
                     <Input name="Disase" placeholder="Enter disase" type="text" className="h-0 py-6" />
                     <Input name="Buy Price" placeholder="Rp. 0.00" type="number" className="h-0 py-6" />
-                    <div className="flex flex-col mt-6">
-                      <label htmlFor="typeId" className="font-semibold">
-                        Type ID
-                      </label>
-                      <select
-                        name="typeId"
-                        id="typeId"
-                        className={`flex  w-full rounded-lg border border-gray-300 py-3 px-4 text-base bg-background shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1  focus-visible:ring-cyan-500 placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-5`}
-                        required
-                      >
-                        <option value="">Select Type ID</option>
-                        <option value="121902120912">121902120912</option>
-                        <option value="183713717983">183713717983</option>
-                        <option value="810108310013">810108310013</option>
-                        <option value="180317318310">180317318310</option>
-                      </select>
-                    </div>
-                    <Input name="Arival Date" placeholder="Select Arival Date" type="date" className="h-0 py-6" />
-                    <Input name="Check Date" placeholder="Select Check Date" type="date" className="h-0 py-6" />
+                    <Input name="Date Time" placeholder="Select Transaction Date" type="date" className="h-0 py-6" />
                   </div>
                   <div className="w-full md:w-1/2 mb-10">
-                    <Input name="Expired Date" placeholder="Select Expired Date" type="date" className="h-0 py-6" />
-                    <Input name="The Real Stock" placeholder="Enter The Real Stock" type="number" className="h-0 py-6" />
-                    <Input name="Total Price" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
-                    <Input name="Price of Lost" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
-                    <Input name="Price of Over" placeholder="Rp. 0,00" type="number" className="h-0 py-6" />
                     <Input name="Additional Information" placeholder="Enter Additional Information" type="text" className="h-0 py-6" isRequired={false} />
                     <div className="mt-6 flex justify-end gap-4">
                       <button onClick={() => setIsOpen(false)} className="border border-primary rounded-full py-2 px-6 cursor-pointer transition-colors duration-300 hover:bg-primary hover:text-white">
                         Cancel
                       </button>
                       <button type="submit" className="border border-primary bg-primary text-white rounded-full py-2 px-6 cursor-pointer transition-colors duration-300 hover:bg-[#13668D] hover:text-white">
-                        Add to iventory
+                        Add Transaction
                       </button>
                     </div>
                   </div>
@@ -96,11 +73,11 @@ const Modal = (props: ModalProps) => {
   );
 };
 
-export const ShowModal = () => {
+export const ShowTransactionModal = () => {
   const modal = document.createElement('div');
-  modal.id = 'modal';
+  modal.id = 'tranasactionModal';
   document.body.appendChild(modal);
   const root = createRoot(modal);
 
-  root.render(<Modal isOpen={true} />);
+  root.render(<TransactionModal isOpen={true} />);
 };
