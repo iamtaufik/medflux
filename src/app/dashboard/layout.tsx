@@ -2,9 +2,11 @@
 import SearchIcon from '@/components/SearchIcon';
 import Sidebar from '@/components/Sidebar';
 import { sidebarToggle } from '@/context/sidebarToggle';
+import { useRouter } from 'next/navigation';
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   const { isActive, setIsActive } = sidebarToggle();
+  const router = useRouter();
   return (
     <section className="flex relative">
       <Sidebar />
@@ -20,7 +22,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
           </div>
-          <div className="flex gap-2 items-center border border-primary rounded-2xl px-4 py-2 cursor-pointer">
+          <a className="flex gap-2 items-center border border-primary rounded-2xl px-4 py-2 cursor-pointer" href="https://wa.me/6289512230607" target="_blank">
             <div>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -40,16 +42,16 @@ const layout = ({ children }: { children: React.ReactNode }) => {
             </div>
 
             <span className="text-primary">Contact Developer</span>
-          </div>
+          </a>
         </div>
         <div className="py-4 mb-6 px-4 flex justify-between md:hidden">
-          <div className="max-w-min" onClick={() => setIsActive()}>
+          <div className="max-w-min" onClick={() => setIsActive(!isActive)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </div>
           <div className="flex items-center gap-4">
-            <div className="border border-primary rounded-full p-2 cursor-pointer">
+            <a className="border border-primary rounded-full p-2 cursor-pointer" href="https://wa.me/6289512230607" target="_blank">
               <div>
                 <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -67,7 +69,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                   />
                 </svg>
               </div>
-            </div>
+            </a>
             <div className="bg-[#F7FAFD] p-2 rounded-full">
               <SearchIcon />
             </div>

@@ -1,15 +1,35 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { sidebarToggle } from '@/context/sidebarToggle';
 
 const Sidebar = () => {
-  const { isActive, setIsActive } = sidebarToggle();
+  const isActive = sidebarToggle(state => state.isActive);
+  const isDesktopView = sidebarToggle(state => state.isDesktopView);
+  const setIsActive = sidebarToggle(state => state.setIsActive);
+  const setDesktopView = sidebarToggle(state => state.setDesktopView);
   const [transactionIsOpen, setTransactionIsOpen] = useState<boolean>(false);
   const [stockIsOpen, setStockIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isDesktop = window.innerWidth > 768;
+      setDesktopView(isDesktop);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [setDesktopView]);
+
+  useEffect(() => {
+    if (!isDesktopView) {
+      setIsActive(false);
+    }
+  }, [isDesktopView, setIsActive]);
 
   return (
     <div className={`md:w-1/5 min-h-screen bg-[#283342] py-7 z-50  flex-col gap-8 fixed transition-all duration-300 flex ${isActive ? 'ml-0' : '-ml-[304px]'}`}>
@@ -136,7 +156,7 @@ const Sidebar = () => {
           </li>
         </ul>
       </div>
-      <div className="absolute bottom-28 md:bottom-4 right-0  bg-[#455162] px-2 py-5 -mr-7" onClick={() => setIsActive()}>
+      <div className="absolute bottom-28 md:bottom-4 right-0  bg-[#455162] px-2 py-5 -mr-7" onClick={() => setIsActive(!isActive)}>
         <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" className={`w-3 h-3 -rotate-90`}>
           <path
             d="M6.77405 0.209396L3.99642 2.98702L1.21879 0.209396C0.939597 -0.0697987 0.488591 -0.0697987 0.209396 0.209396C-0.0697987 0.488591 -0.0697987 0.939597 0.209396 1.21879L3.4953 4.5047C3.7745 4.78389 4.2255 4.78389 4.5047 4.5047L7.7906 1.21879C8.0698 0.939597 8.0698 0.488591 7.7906 0.209396C7.51141 -0.0626398 7.05324 -0.0697987 6.77405 0.209396Z"
