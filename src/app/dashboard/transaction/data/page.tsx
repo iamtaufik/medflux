@@ -12,145 +12,49 @@ const transactionData = [
     date: '11/10/2023-16:30',
     name: 'Augmentin 6250 Duo Tablet',
     struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    totalSales: 1244023,
   },
   {
     date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Asfifit Kaplet-Blister',
+    struct: '10001210211',
+    totalSales: 2383775,
   },
   {
     date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Fituno Kaplet-Blister',
+    struct: '10001210212',
+    totalSales: 1900000,
   },
   {
     date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Zink 20 mg',
+    struct: '10001210213',
+    totalSales: 2000000,
   },
   {
     date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Desoximetason Cream',
+    struct: '10001210214',
+    totalSales: 1233678,
   },
   {
     date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Aspilet',
+    struct: '10001210215',
+    totalSales: 2345672,
   },
   {
     date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Tramadal 50 mg',
+    struct: '10001210216',
+    totalSales: 1672928,
   },
   {
     date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-16:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
-  },
-  {
-    date: '11/10/2023-17:30',
-    name: 'Augmentin 6250 Duo Tablet',
-    struct: '10001210210',
-    totalSales: 'Rp. 1.000.000,00',
+    name: 'Aminofisin Hepar',
+    struct: '10001210217',
+    totalSales: 1789000,
   },
 ];
 const Page = () => {
@@ -168,9 +72,9 @@ const Page = () => {
   }, 500);
   return (
     <>
-      <div className="flex justify-between items-center px-10">
+      <div className="px-4 flex justify-between flex-col gap-4 md:items-center md:px-10 md:flex-row">
         <div>
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl font-bold">
             <Link className="text-gray-300" href={'/dashboard/transaction'}>
               Transaction
             </Link>{' '}
@@ -178,7 +82,7 @@ const Page = () => {
           </h1>
           <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
         </div>
-        <div className="flex gap-6">
+        <div className="flex gap-6 justify-between md:justify-normal">
           <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -196,23 +100,23 @@ const Page = () => {
           </button>
         </div>
       </div>
-      <div className="px-10 my-10 flex justify-between">
-        <div className="flex gap-10">
-          <div className="w-full max-w-xs ">
+      <div className="px-4 md:px-10 my-10 flex gap-4 justify-between flex-col md:flex-row">
+        <div className="flex gap-4 md:gap-10 flex-col md:flex-row">
+          <div className="w-full md:max-w-xs ">
             <TextInput className="px-4" icon={SearchIcon} placeholder="Search Transaction..." />
           </div>
-          <div className="w-full max-w-[290px] ">
+          <div className="w-full md:max-w-[290px] ">
             <DateRangePicker locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" displayFormat="dd MMM yyyy" />
           </div>
         </div>
-        <div className="w-full max-w-[250px]">
+        <div className="w-full md:max-w-[250px]">
           <Select placeholder="Select sort">
             <SelectItem value="1">Ascending</SelectItem>
             <SelectItem value="2">Descending</SelectItem>
           </Select>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 mb-10 md:px-10">
         <Table
           paggination={
             {
@@ -281,7 +185,7 @@ const Page = () => {
                 <td className="px-6 py-3">{data.date}</td>
                 <td className="px-6 py-3">{data.name}</td>
                 <td className="px-6 py-3">{data.struct}</td>
-                <td className="px-6 py-3">{data.totalSales}</td>
+                <td className="px-6 py-3">Rp. {data.totalSales.toLocaleString('id-ID')}</td>
                 <td className="px-6 py-3">
                   <button className="flex gap-2 items-center">
                     View Full Detail

@@ -4,6 +4,7 @@ import Card from '@/components/Card';
 import Label from '@/components/Label';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Dashboard = () => {
   const [isNotify, setIsNotify] = useState<boolean>(true);
@@ -28,9 +29,9 @@ const Dashboard = () => {
 
             <p>
               Your inventory is running low, it's time to restock the items now!{' '}
-              <a href="#" className="font-bold">
+              <Link href="/dashboard/suppliers" className="font-bold">
                 Restock Now
-              </a>
+              </Link>
             </p>
             <div className="cursor-pointer" onClick={() => setIsNotify(false)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 text-black font-bold">
@@ -112,7 +113,7 @@ const Dashboard = () => {
           linkName="Check"
         />
       </div>
-      <div className="flex w-full px-4 justify-between flex-col md:flex-row md:px-10">
+      <div className="mb-10 flex w-full px-4 justify-between flex-col md:flex-row md:px-10">
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-bold">Recomendations</h2>
           <p className="text-base font-normal mt-2">Machine Learning Analytics</p>
@@ -120,7 +121,6 @@ const Dashboard = () => {
             <Card title="Oil Bioprost Kaps" quantity={12} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Asifit Kaplet-Blister" quantity={9} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Fituno Kaplet-Blister" quantity={15} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
-            <Card title="Paracetamol Tablet" quantity={5} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
           </div>
         </div>
         <div className="w-full md:w-1/3 ">

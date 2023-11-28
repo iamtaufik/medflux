@@ -7,8 +7,8 @@ const stocks = [
   {
     code: 'OB12121219',
     name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
+    disease: 'Suplemen Vitamin K',
+    price: 100000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -19,9 +19,9 @@ const stocks = [
   },
   {
     code: 'OB12121219',
-    name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -32,9 +32,9 @@ const stocks = [
   },
   {
     code: 'OB12121219',
-    name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -45,9 +45,9 @@ const stocks = [
   },
   {
     code: 'OB17298127',
-    name: 'Vitamin A Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 200.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 200000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -58,9 +58,9 @@ const stocks = [
   },
   {
     code: 'OB12121219',
-    name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -71,9 +71,9 @@ const stocks = [
   },
   {
     code: 'OB17298127',
-    name: 'Vitamin A Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 200.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 200000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -84,9 +84,9 @@ const stocks = [
   },
   {
     code: 'OB12121219',
-    name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -97,9 +97,9 @@ const stocks = [
   },
   {
     code: 'OB17298127',
-    name: 'Vitamin A Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 200.000',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 202120,
     unit: 'ST30',
     enter: '01-Jul-2023',
     check: '09-Aug-2023',
@@ -107,41 +107,15 @@ const stocks = [
     remain: 200,
     stockSystem: 200,
     stockReal: 200,
-  },
-  {
-    code: 'OB12121219',
-    name: 'Vitamin B Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 100.000',
-    unit: 'ST30',
-    enter: '01-Jul-2023',
-    check: '09-Aug-2023',
-    expired: '01-Jan-2024',
-    remain: 148,
-    stockSystem: 150,
-    stockReal: 150,
-  },
-  {
-    code: 'OB17298127',
-    name: 'Vitamin A Complex',
-    disease: 'Vitamin',
-    price: 'Rp. 200.000',
-    unit: 'ST30',
-    enter: '01-Jul-2023',
-    check: '09-Aug-2023',
-    expired: '01-Jan-2024',
-    remain: 200,
-    stockSystem: 200,
-    stockReal: 200,
-  },
+  }
 ];
 
 const Page = () => {
   return (
     <>
-      <div className="flex justify-between items-center px-10">
+      <div className="px-4 flex justify-between gap-4 md:items-center flex-col md:px-10 md:flex-row">
         <div>
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl font-bold">
             <Link className="text-gray-300" href={'/dashboard'}>
               Dashboard
             </Link>
@@ -159,7 +133,7 @@ const Page = () => {
           </button>
         </div>
       </div>
-      <div className="px-10 my-10 flex gap-8">
+      <div className="px-4 md:px-10 my-10 flex gap-8 flex-col md:flex-row">
         <Label
           title="Medicine Available"
           value="312"
@@ -175,8 +149,8 @@ const Page = () => {
             </div>
           }
         />
-        <div className=" flex gap-8 justify-between px-8 py-6 border  w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
-          <div className="flex items-center gap-10 w-4/12">
+        <div className=" flex gap-8 justify-between px-8 py-6 border w-full md:w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+          <div className="flex items-center gap-4 md:gap-10 w-4/12">
             <div className="bg-[#F5CE00] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -231,12 +205,12 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 md:px-10">
         <Table
           paggination={{
             total: 10,
             page: 1,
-            limit: 10,
+            limit: 8,
             setLimit: (limit: number) => {},
             setOffset: (offset: number) => {},
           }}
@@ -248,6 +222,9 @@ const Page = () => {
               </th>
               <th scope="col" className="px-6 py-3 ">
                 Medicine Code
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                Medicine Name
               </th>
               <th scope="col" className="px-6 py-3 ">
                 Disease
@@ -286,8 +263,9 @@ const Page = () => {
               <tr key={index} className="text-center border h-10 font-normal  whitespace-nowrap ">
                 <td className="px-6 py-3">{index + 1}</td>
                 <td className="px-6 py-3">{stock.code}</td>
+                <td className="px-6 py-3">{stock.name}</td>
                 <td className="px-6 py-3">{stock.disease}</td>
-                <td className="px-6 py-3">{stock.price}</td>
+                <td className="px-6 py-3">Rp. {stock.price.toLocaleString("id-ID")}</td>
                 <td className="px-6 py-3">{stock.unit}</td>
                 <td className="px-6 py-3">{stock.enter}</td>
                 <td className="px-6 py-3">{stock.check}</td>

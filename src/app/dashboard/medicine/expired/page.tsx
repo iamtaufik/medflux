@@ -5,73 +5,59 @@ import React from 'react';
 
 const stockSold = [
   {
-    name: 'Fituno Kaplet-Blister',
-    unit: 'ST30',
-    soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
-    realStock: 150,
-  },
-  {
-    name: 'Paracetamol Tablet',
-    unit: 'ST30',
-    soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
-    realStock: 150,
-  },
-  {
     name: 'Augmentin 625 Duo Tablet',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1888567,
     realStock: 150,
   },
   {
     name: 'Asifit Kaplet-Blister',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1322456,
     realStock: 150,
   },
   {
     name: 'Fituno Kaplet-Blister',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 7892666,
     realStock: 150,
   },
   {
-    name: 'Paracetamol Tablet',
+    name: 'Zink 20 mg',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2987654,
     realStock: 150,
   },
   {
-    name: 'Augmentin 625 Duo Tablet',
+    name: 'Desoximetason Cream',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 7543210,
     realStock: 150,
   },
   {
-    name: 'Asifit Kaplet-Blister',
+    name: 'Aspilet',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1281976,
     realStock: 150,
   },
   {
-    name: 'Fituno Kaplet-Blister',
+    name: 'Tramadal 50 mg',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2678965,
     realStock: 150,
   },
   {
-    name: 'Paracetamol Tablet',
+    name: 'Aminofisin Hepar',
     unit: 'ST30',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2345678,
     realStock: 150,
   },
 ];
@@ -79,9 +65,9 @@ const stockSold = [
 const Page = () => {
   return (
     <>
-      <div className="flex justify-between items-center px-10">
+      <div className="px-4 flex justify-between flex-col gap-4 md:items-center md:px-10 md:flex-row">
         <div>
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl font-bold">
             <Link className="text-gray-300" href={'/dashboard'}>
               Dashboard
             </Link>
@@ -99,7 +85,7 @@ const Page = () => {
           </button>
         </div>
       </div>
-      <div className="px-10 my-10 flex gap-8">
+      <div className="px-4 md:px-10 my-10 flex gap-8 flex-col md:flex-row">
         <Label
           title="Medicine Expired"
           value="12"
@@ -114,8 +100,8 @@ const Page = () => {
             </div>
           }
         />
-        <div className=" flex gap-8 justify-between px-8 py-6 border  w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
-          <div className="flex items-center gap-10 w-4/12">
+        <div className=" flex gap-8 justify-between p-4 md:px-8 md:py-6 border w-full md:w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+          <div className="flex items-center gap-4 md:gap-10 w-4/12">
             <div className="bg-[#F5CE00] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -170,12 +156,12 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 mb-10 md:px-10 ">
         <Table
           paggination={{
             total: 10,
             page: 1,
-            limit: 10,
+            limit: 8,
             setLimit: (limit: number) => {},
             setOffset: (offset: number) => {},
           }}
@@ -240,7 +226,7 @@ const Page = () => {
                 <td className="px-6 py-3">{stock.name}</td>
                 <td className="px-6 py-3">{stock.unit}</td>
                 <td className="px-6 py-3">{stock.soldAmount}</td>
-                <td className="px-6 py-3">{stock.totalSales}</td>
+                <td className="px-6 py-3">Rp. {stock.totalSales.toLocaleString('id-ID')}</td>
                 <td className="px-6 py-3">{stock.realStock}</td>
                 <td className="px-6 py-3">
                   <Link href={`/dashboard/stock/data/detail/${stock.name}`} className="flex gap-2 items-center">

@@ -4,83 +4,75 @@ import React from 'react';
 
 const stockSold = [
   {
-    name: 'Fituno Kaplet-Blister',
-    code: 'OB91182120',
-    unit: 'ST30',
-    soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
-    realStock: 150,
-  },
-  {
-    name: 'Paracetamol Tablet',
-    code: 'OB91182120',
-    unit: 'ST30',
-    soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
-    realStock: 150,
-  },
-  {
+    code: '10001210210',
     name: 'Augmentin 625 Duo Tablet',
-    code: 'OB91182120',
     unit: 'ST30',
+    movement: 'Very Fast',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1888567,
     realStock: 150,
   },
   {
+    code: '10001121728',
     name: 'Asifit Kaplet-Blister',
-    code: 'OB91182120',
     unit: 'ST30',
+    movement: 'Very Fast',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1322456,
     realStock: 150,
   },
   {
+    code: '10001819291',
     name: 'Fituno Kaplet-Blister',
-    code: 'OB91182120',
     unit: 'ST30',
+    movement: 'Fast',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 7892666,
     realStock: 150,
   },
   {
-    name: 'Paracetamol Tablet',
-    code: 'OB91182120',
+    code: '10001210201',
+    name: 'Zink 20 mg',
     unit: 'ST30',
+    movement: 'Fast',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2987654,
     realStock: 150,
   },
   {
-    name: 'Augmentin 625 Duo Tablet',
-    code: 'OB91182120',
+    code: '10001212678',
+    name: 'Desoximetason Cream',
     unit: 'ST30',
+    movement: 'Normal',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 7543210,
     realStock: 150,
   },
   {
-    name: 'Asifit Kaplet-Blister',
-    code: 'OB91182120',
+    code: '10001213132',
+    name: 'Aspilet',
     unit: 'ST30',
+    movement: 'Normal',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 1281976,
     realStock: 150,
   },
   {
-    name: 'Fituno Kaplet-Blister',
-    code: 'OB91182120',
+    code: '10001162192',
+    name: 'Tramadal 50 mg',
     unit: 'ST30',
+    movement: 'Slow',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2678965,
     realStock: 150,
   },
   {
-    name: 'Paracetamol Tablet',
-    code: 'OB91182120',
+    code: '100017230823',
+    name: 'Aminofisin Hepar',
     unit: 'ST30',
+    movement: 'Very Slow',
     soldAmount: 150,
-    totalSales: 'Rp. 1.500.000',
+    totalSales: 2345678,
     realStock: 150,
   },
 ];
@@ -88,9 +80,9 @@ const stockSold = [
 const Page = () => {
   return (
     <>
-      <div className="flex justify-between items-center px-10">
+      <div className="flex justify-between px-4 gap-4 md:items-center md:px-10 flex-col md:flex-row">
         <div>
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl font-bold">
             <Link className="text-gray-300" href={'/dashboard'}>
               Dashboard
             </Link>
@@ -108,9 +100,9 @@ const Page = () => {
           </button>
         </div>
       </div>
-      <div className="px-10 my-10 flex gap-10">
-        <div className=" flex gap-8 justify-between px-8 py-6 border  w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
-          <div className="flex items-center gap-4 w-2/5">
+      <div className="px-4 md:px-10 my-10 flex gap-10 flex-col md:flex-row">
+        <div className=" w-full flex gap-8 justify-between p-4 md:px-8 md:py-6 border  md:w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+          <div className="flex items-center gap-4 md:w-2/5">
             <div className="bg-[#F49200] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -127,7 +119,7 @@ const Page = () => {
             <h2 className="font-medium text-lg">Top 5 Best Seller</h2>
           </div>
 
-          <div className="relative w-3/5 scroll overflow-y-scroll py-2 px-4">
+          <div className="relative w-full md:w-3/5 scroll overflow-y-scroll py-2 px-4">
             <ul className="flex flex-col gap-6 font-normal text-base whitespace-nowrap">
               <li className="flex gap-4">
                 <span>1</span>
@@ -157,7 +149,7 @@ const Page = () => {
             </ul>
           </div>
         </div>
-        <div className=" flex gap-8 justify-between px-8 py-6 border  w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
+        <div className=" w-full flex gap-8 justify-between p-4 md:px-8 md:py-6 border  md:w-1/2 rounded-3xl max-h-[170px] transition-colors duration-300 hover:border-primary hover:bg-primary hover:bg-opacity-10">
           <div className="flex items-center gap-4 w-2/5">
             <div className="bg-[#F0483E] bg-opacity-10 p-4 rounded-full flex items-center">
               <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,12 +200,12 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 mb-10 md:px-10">
         <Table
           paggination={{
             total: 10,
             page: 1,
-            limit: 10,
+            limit: 8,
             setLimit: (limit: number) => {},
             setOffset: (offset: number) => {},
           }}
@@ -258,6 +250,16 @@ const Page = () => {
               </th>
               <th scope="col" className="px-6 py-3 ">
                 <div className="flex items-center gap-1 justify-center ">
+                  <span>Movement</span>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1 justify-center ">
                   <span>Total Sales</span>
                   <div className="cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -282,7 +284,8 @@ const Page = () => {
                 <td className="px-6 py-3">{stock.name}</td>
                 <td className="px-6 py-3">{stock.unit}</td>
                 <td className="px-6 py-3">{stock.soldAmount}</td>
-                <td className="px-6 py-3">{stock.totalSales}</td>
+                <td className="px-6 py-3">{stock.movement}</td>
+                <td className="px-6 py-3">Rp. {stock.totalSales.toLocaleString('id-ID')}</td>
                 <td className="px-6 py-3">{stock.realStock}</td>
                 <td className="px-6 py-3">
                   <Link href={`/dashboard/stock/data/detail/${stock.name}`} className="flex gap-2 items-center">

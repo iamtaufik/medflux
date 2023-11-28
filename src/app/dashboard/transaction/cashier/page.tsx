@@ -6,8 +6,8 @@ import React from 'react';
 const Page = () => {
   return (
     <>
-      <div className="px-10">
-        <h1 className="text-2xl font-bold">
+      <div className="px-4 md:px-10">
+        <h1 className="text-xl md:text-2xl font-bold">
           <Link className="text-gray-300" href={'/dashboard/transaction'}>
             Transaction
           </Link>{' '}
@@ -15,8 +15,8 @@ const Page = () => {
         </h1>
         <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
       </div>
-      <div className="px-10 flex gap-10 my-10 ">
-        <div className="w-9/12 border rounded-xl overflow-hidden">
+      <div className="px-4 md:px-10 flex gap-10 my-10 flex-col md:flex-row">
+        <div className="w-full md:w-9/12 border rounded-xl overflow-hidden">
           <div className="relative w-full scroll-x overflow-x-auto py-2">
             <table className="table-auto  w-full ">
               <thead className="border-b ">
@@ -67,7 +67,7 @@ const Page = () => {
             </table>
           </div>
         </div>
-        <div className="w-3/12  rounded-xl flex flex-col border justify-between ">
+        <div className="w-full md:w-3/12  rounded-xl flex flex-col border justify-between ">
           <div>
             <h2 className="text-xl font-semibold p-4">Cashier Information</h2>
             <hr />
@@ -75,27 +75,27 @@ const Page = () => {
               <hr />
               <li className="px-4 py-2 flex justify-between">
                 <p>Sub Total</p>
-                <p>Rp. 0,00</p>
+                <p>Rp. 1.240.000</p>
               </li>
               <hr />
               <li className="px-4 py-2 flex justify-between">
                 <p>Biaya Service</p>
-                <p>Rp. 0,00</p>
+                <p>Rp. 1.240.000</p>
               </li>
               <hr />
               <li className="px-4 py-2 flex justify-between">
                 <p>Biaya Embalase</p>
-                <p>Rp. 0,00</p>
+                <p>Rp. 1.240.000</p>
               </li>
               <hr />
               <li className="px-4 py-2 flex justify-between">
                 <p>Ongkos Kirim</p>
-                <p>Rp. 0,00</p>
+                <p>Rp. 1.240.000</p>
               </li>
               <hr />
               <li className="px-4 py-2 flex justify-between">
                 <p>Biaya Lainnya</p>
-                <p>Rp. 0,00</p>
+                <p>Rp. 1.240.000</p>
               </li>
             </ul>
           </div>
@@ -103,7 +103,7 @@ const Page = () => {
           <div className=" p-4  text-black flex flex-col gap-10">
             <div className="font-bold flex gap-2">
               <p className="text-sm">Rp.</p>
-              <p className="text-5xl">1,240,455</p>
+              <p className="text-5xl">6.200.000</p>
             </div>
             <div className="flex justify-between">
               <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">

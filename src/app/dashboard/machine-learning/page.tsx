@@ -99,13 +99,13 @@ const stocks = [
 const Page = () => {
   return (
     <>
-      <div className="px-10">
-        <h1 className="text-2xl font-bold">Machine Learning Dashboard</h1>
+      <div className="px-4 md:px-10">
+        <h1 className="text-xl md:text-2xl font-bold">Machine Learning Dashboard</h1>
         <p className="text-base font-normal">A quick recomendations machine learning analytics</p>
       </div>
-      <div className="px-10 my-10 flex gap-8 justify-between ">
-        <Card className="w-1/2">
-          <h2 className="text-2xl font-bold">Demand Forecasting Model</h2>
+      <div className="px-4 md:px-10 my-10 flex gap-8 justify-between flex-col md:flex-row">
+        <Card className="md:w-1/2">
+          <h2 className="text-xl font-bold">Demand Forecasting Model</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div className="w-full max-w-[250px]">
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
@@ -113,8 +113,8 @@ const Page = () => {
           </div>
           <LineChart data={demandForecast} index="date" categories={['value']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
-        <Card className="w-1/2">
-          <h2 className="text-2xl font-bold">Disease Trend</h2>
+        <Card className="md:w-1/2">
+          <h2 className="text-xl font-bold">Disease Trend</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div className="w-full max-w-[250px]">
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
@@ -123,9 +123,9 @@ const Page = () => {
           <BarChart className="mt-6" data={buyerDiseases} index="name" categories={['Record Count']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
       </div>
-      <div className="px-10 my-10 flex gap-8 justify-between">
-        <Card className="w-1/2">
-          <h2 className="text-2xl font-bold">Stock Trend</h2>
+      <div className="px-4 md:px-10  flex gap-8 justify-between flex-col md:flex-row">
+        <Card className="md:w-1/2">
+          <h2 className="text-xl font-bold">Stock Trend</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div className="w-full max-w-[250px]">
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />
@@ -133,8 +133,8 @@ const Page = () => {
           </div>
           <BarChart className="mt-6" data={stocks} index="name" categories={['Avability Stock']} colors={['blue']} valueFormatter={(val) => val.toString()} showAnimation={true} />
         </Card>
-        <Card className="w-1/2">
-          <h2 className="text-2xl font-bold">Trade Series</h2>
+        <Card className="md:w-1/2">
+          <h2 className="text-xl font-bold">Trade Series</h2>
           <div className="w-full flex gap-2 justify-end my-4">
             <div className="w-full max-w-[250px]">
               <DateRangePicker className="w-full " locale={id} defaultValue={{ from: new Date(2023, 1, 1), to: new Date() }} enableSelect={false} placeholder="Date Range" />

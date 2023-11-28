@@ -85,7 +85,7 @@ const Page = () => {
     <>
       <div className="flex justify-between md:items-center flex-col px-4 md:px-10 md:flex-row">
         <div>
-          <h1 className="text-2xl font-bold">Stock</h1>
+          <h1 className="text-xl md:text-2xl font-bold">Stock</h1>
           <p className="text-base font-normal">Stock of medicines availabel for sales</p>
         </div>
         <div className=" gap-4 hidden md:flex">
@@ -198,7 +198,7 @@ const Page = () => {
           linkName="Check"
         />
       </div>
-      <div className="px-4 md:px-10 flex gap-8 justify-between flex-col md:flex-row">
+      <div className="px-4 md:px-10 mb-10 flex gap-8 justify-between flex-col md:flex-row">
         <Card className="md:w-1/3">
           <h2 className="text-xl md:text-2xl font-bold">Distribution of Disease</h2>
           <DonutChart

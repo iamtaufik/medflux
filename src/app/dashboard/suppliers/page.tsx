@@ -51,8 +51,8 @@ const Page = () => {
   });
   return (
     <>
-      <div className="w-full px-10 text-black flex gap-10">
-        <div className="w-2/3 flex flex-col gap-10">
+      <div className="w-full px-4 md:px-10 text-black flex gap-10 flex-col md:flex-row">
+        <div className="w-full md:w-2/3 flex flex-col gap-10">
           <div className="flex gap-6 max-w-md">
             <div>
               <Image src={'/prof.jpg'} width={120} height={120} alt="prof" className="rounded-full aspect-square" />
@@ -104,7 +104,7 @@ const Page = () => {
             </div>
           </Card>
         </div>
-        <div className="w-1/3 flex flex-col gap-10">
+        <div className="w-full md:w-1/3 flex flex-col gap-10">
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-bold">Distributor Active</h3>
@@ -281,12 +281,12 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 md:px-10 my-10">
         <Table
           paggination={{
             total: 10,
             page: 1,
-            limit: 10,
+            limit: 6,
             setLimit: (limit: number) => {},
             setOffset: (offset: number) => {},
           }}

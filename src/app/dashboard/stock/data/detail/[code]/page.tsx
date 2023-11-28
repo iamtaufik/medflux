@@ -51,8 +51,8 @@ const Page = ({ params }: { params: { code: string } }) => {
   });
   return (
     <>
-      <div className="px-10">
-        <h1 className="text-2xl font-bold">
+      <div className="px-4 md:px-10">
+        <h1 className="text-xl md:text-2xl font-bold">
           <Link className="text-gray-300" href={'/dashboard/stock'}>
             Stock
           </Link>
@@ -65,8 +65,8 @@ const Page = ({ params }: { params: { code: string } }) => {
         </h1>
         <p className="text-base font-normal">Detail information of medicines for sales</p>
       </div>
-      <div className="px-10 my-10 flex gap-10">
-        <div className="w-1/2 border rounded-xl h-full">
+      <div className="px-4 md:px-10 my-10 flex gap-10 flex-col md:flex-row">
+        <div className="w-full md:w-1/2 border rounded-xl h-full">
           <h2 className="px-6 py-4 text-xl font-semibold">Detail Product Information</h2>
           <hr />
           <ul className="flex flex-col justify-between">
@@ -111,7 +111,7 @@ const Page = ({ params }: { params: { code: string } }) => {
             </li>
           </ul>
         </div>
-        <div className="w-1/2 border rounded-xl px-6 pb-6">
+        <div className="w-full md:w-1/2 border rounded-xl px-6 pb-6">
           <h2 className="text-xl font-bold  py-4">Recomendation Distributors</h2>
           <div className="w-full flex gap-2 justify-end mb-4">
             <div>
@@ -137,7 +137,7 @@ const Page = ({ params }: { params: { code: string } }) => {
           </div>
         </div>
       </div>
-      <div className="px-10 my-10">
+      <div className="px-4 mb-10 md:px-10">
         <Table
           paggination={{
             total: 10,
