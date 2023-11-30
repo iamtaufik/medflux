@@ -1,3 +1,4 @@
+'use client';
 import Table from '@/components/Table';
 import Link from 'next/link';
 import React from 'react';

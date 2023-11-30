@@ -1,3 +1,4 @@
+'use client';
 import Label from '@/components/Label';
 import Table from '@/components/Table';
 import Link from 'next/link';
