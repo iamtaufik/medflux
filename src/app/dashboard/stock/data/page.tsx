@@ -3,11 +3,130 @@ import SearchIcon from '@/components/SearchIcon';
 import { Select, SelectItem, TextInput } from '@tremor/react';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@/components/Table';
 import { ShowModal } from '@/components/Modal';
+import * as XLSX from 'xlsx';
 
-const stocks = [
+interface Stock {
+  code: string;
+  name: string;
+  disease: string;
+  price: number;
+  unit: string;
+  enter: string;
+  check: string;
+  expired: string;
+  remain: number;
+  stockSystem: number;
+  stockReal: number;
+}
+
+const stocksData = [
+  {
+    code: 'OB12121219',
+    name: 'Vitamin B Complex',
+    disease: 'Suplemen Vitamin K',
+    price: 100000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 148,
+    stockSystem: 150,
+    stockReal: 150,
+  },
+  {
+    code: 'OB12121219',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 148,
+    stockSystem: 150,
+    stockReal: 150,
+  },
+  {
+    code: 'OB12121219',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 148,
+    stockSystem: 150,
+    stockReal: 150,
+  },
+  {
+    code: 'OB17298127',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 200000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 200,
+    stockSystem: 200,
+    stockReal: 200,
+  },
+  {
+    code: 'OB12121219',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 148,
+    stockSystem: 150,
+    stockReal: 150,
+  },
+  {
+    code: 'OB17298127',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 200000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 200,
+    stockSystem: 200,
+    stockReal: 200,
+  },
+  {
+    code: 'OB12121219',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 208000,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 148,
+    stockSystem: 150,
+    stockReal: 150,
+  },
+  {
+    code: 'OB17298127',
+    name: 'Augmentin 6250 Duo Tablet',
+    disease: 'Suplemen Vitamin K',
+    price: 202120,
+    unit: 'ST30',
+    enter: '01-Jul-2023',
+    check: '09-Aug-2023',
+    expired: '01-Jan-2024',
+    remain: 200,
+    stockSystem: 200,
+    stockReal: 200,
+  },
   {
     code: 'OB12121219',
     name: 'Vitamin B Complex',
@@ -115,6 +234,22 @@ const stocks = [
 ];
 
 const Page = () => {
+  const [stocks, setStocks] = useState<Stock[]>([]);
+  const [pagination, setPagination] = useState({
+    total: 0,
+    page: 1,
+    limit: 10, // Misalnya, setiap halaman akan menampilkan 5 data
+    setLimit: (limit: number) => setPagination({ ...pagination, limit }),
+    setOffset: (offset: number) => setPagination({ ...pagination, page: offset / pagination.limit + 1 }),
+  });
+
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(stocksData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, 'stocks.xlsx');
+  };
+
   const handleAddStock = () => {
     ShowModal();
     toast.success('Medicine Added to iventory', {
@@ -129,6 +264,16 @@ const Page = () => {
     });
   };
 
+  useEffect(() => {
+    // Atur data stocks ke dalam state
+    setStocks(stocksData);
+    setPagination({ ...pagination, total: stocksData.length });
+  }, []);
+
+  const indexOfLastItem = pagination.page * pagination.limit;
+  const indexOfFirstItem = indexOfLastItem - pagination.limit;
+  const currentItems = stocks.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <div className="px-4 flex justify-between flex-col gap-4 md:items-center md:px-10 md:flex-row">
@@ -142,7 +287,7 @@ const Page = () => {
           <p className="text-base font-normal">List of medicines available for sales</p>
         </div>
         <div className="flex gap-6 justify-between md:justify-normal">
-          <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
+          <button onClick={exportToExcel} className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
@@ -171,15 +316,7 @@ const Page = () => {
         </div>
       </div>
       <div className="px-4 mb-10 md:px-10">
-        <Table
-          paggination={{
-            total: 10,
-            page: 1,
-            limit: 8,
-            setLimit: (limit: number) => {},
-            setOffset: (offset: number) => {},
-          }}
-        >
+        <Table paggination={pagination}>
           <thead className="border-b">
             <tr className="whitespace-nowrap">
               <th scope="col" className="px-6 py-3 ">
@@ -224,7 +361,7 @@ const Page = () => {
             </tr>
           </thead>
           <tbody>
-            {stocks.map((stock, index) => (
+            {currentItems.map((stock, index) => (
               <tr key={index} className="text-center border h-10 font-normal  whitespace-nowrap ">
                 <td className="px-6 py-3">{index + 1}</td>
                 <td className="px-6 py-3">{stock.code}</td>

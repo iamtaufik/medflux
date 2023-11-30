@@ -1,9 +1,10 @@
 'use client';
 import Label from '@/components/Label';
 import id from 'date-fns/locale/id';
-import { GoogleMap, MarkerF, useJsApiLoader, OverlayView } from '@react-google-maps/api';
+import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { Card, DonutChart, DatePicker, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem, LineChart, Title } from '@tremor/react';
-import React, { useState } from 'react';
+import React, { LegacyRef, useRef, useState } from 'react';
+import { useReactToPrint } from 'react-to-print';
 
 const genders = [
   { name: 'Laki - Laki', value: 40 },
@@ -13,35 +14,35 @@ const genders = [
 const transactions = [
   {
     date: '1 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 24,
   },
   {
     date: '2 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 33,
   },
   {
     date: '3 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 57,
   },
   {
     date: '4 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 62,
   },
   {
     date: '5 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 40,
   },
   {
     date: '6 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 21,
   },
   {
     date: '7 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 30,
   },
   {
     date: '8 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 18,
   },
 ];
 
@@ -71,27 +72,27 @@ const buyerDiseases = [
   },
   {
     name: 'Hipertensi',
-    value: Math.floor(Math.random() * 200),
+    value: 213,
   },
   {
     name: 'Nyeri',
-    value: Math.floor(Math.random() * 200),
+    value: 255,
   },
   {
     name: 'Infeksi Kulit',
-    value: Math.floor(Math.random() * 200),
+    value: 111,
   },
   {
     name: 'Infeksi Bakteri',
-    value: Math.floor(Math.random() * 200),
+    value: 125,
   },
   {
     name: 'Gangguan Pernaafsan',
-    value: Math.floor(Math.random() * 200),
+    value: 127,
   },
   {
     name: 'Pascaoperasi',
-    value: Math.floor(Math.random() * 200),
+    value: 158,
   },
 ];
 
@@ -137,41 +138,14 @@ const valueFormatter = (value: number) => {
   return `${value.toString()}%`;
 };
 
-const customTooltip = ({ payload, active }: any) => {
-  if (!active || !payload) return null;
-  return (
-    <div className="px-4 py-2 rounded-tremor-default text-tremor-default bg-tremor-content-emphasis shadow-tremor-dropdown border border-tremor-border ">
-      {payload.map((category: any, idx: number) => (
-        <div key={idx}>
-          <p className="font-medium text-tremor-background ">Rp. {category.value?.toLocaleString('id-ID')} </p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const Page = () => {
+const ComponentToPrint = React.forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
   const [markers, setMarkers] = useState(positions);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: String(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY),
   });
   return (
-    <>
-      <div className="flex justify-between md:items-center flex-col px-4 md:px-10 md:flex-row">
-        <div>
-          <h1 className="text-xl md:text-2xl font-bold">Transaction</h1>
-          <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
-        </div>
-        <div className="hidden md:block">
-          <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            <span>Download Report</span>
-          </button>
-        </div>
-      </div>
+    <div ref={ref} className="flex flex-col">
       <div className="px-4 md:px-10 text-black my-10 flex gap-8 flex-col md:flex-row">
         <Label
           title="Total Revenue"
@@ -222,7 +196,7 @@ const Page = () => {
           linkName="View Detail"
         />
       </div>
-      <div className="flex px-4 md:px-10 gap-8 flex-col md:flex-row">
+      <div id="element-to-print" className="flex px-4 md:px-10 gap-8 flex-col md:flex-row">
         <Card className="w-full md:w-1/3">
           <h2 className="text-xl md:text-2xl font-semibold">Monthly Activities</h2>
           <div className="my-4">
@@ -360,6 +334,46 @@ const Page = () => {
           </div>
         </Card>
       </div>
+    </div>
+  );
+});
+
+const customTooltip = ({ payload, active }: any) => {
+  if (!active || !payload) return null;
+  return (
+    <div className="px-4 py-2 rounded-tremor-default text-tremor-default bg-tremor-content-emphasis shadow-tremor-dropdown border border-tremor-border ">
+      {payload.map((category: any, idx: number) => (
+        <div key={idx}>
+          <p className="font-medium text-tremor-background ">Rp. {category.value?.toLocaleString('id-ID')} </p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Page = () => {
+  const componentRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  return (
+    <>
+      <div className="flex gap-4 justify-between md:items-center flex-col px-4 md:px-10 md:flex-row">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold">Transaction</h1>
+          <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
+        </div>
+        <div>
+          <button onClick={handlePrint} className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            <span>Download Report</span>
+          </button>
+        </div>
+      </div>
+      <ComponentToPrint ref={componentRef} />
     </>
   );
 };

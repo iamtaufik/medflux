@@ -6,35 +6,35 @@ import { BarChart, Card, DateRangePicker, LineChart, AreaChart } from '@tremor/r
 const demandForecast = [
   {
     date: '1 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 26,
   },
   {
     date: '2 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 33,
   },
   {
     date: '3 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 40,
   },
   {
     date: '4 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 78,
   },
   {
     date: '5 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 44,
   },
   {
     date: '6 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 89,
   },
   {
     date: '7 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 50,
   },
   {
     date: '8 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 70,
   },
 ];
 
@@ -45,54 +45,54 @@ const buyerDiseases = [
   },
   {
     name: 'Hipertensi',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 201,
   },
   {
     name: 'Nyeri',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 127,
   },
   {
     name: 'Infeksi Kulit',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 143,
   },
   {
     name: 'Infeksi Bakteri',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 122,
   },
   {
     name: 'Gangguan Pernaafsan',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 190,
   },
   {
     name: 'Pascaoperasi',
-    'Record Count': Math.floor(Math.random() * 200),
+    'Record Count': 125,
   },
 ];
 
 const stocks = [
   {
     name: 'Paracetamol',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock': 121,
   },
   {
     name: 'Amoxilin',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock': 423,
   },
   {
     name: 'Promag',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock': 124,
   },
   {
     name: 'Bodrex',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock':432,
   },
   {
     name: 'Antangin',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock': 222,
   },
   {
     name: 'Paramex',
-    'Avability Stock': Math.floor(Math.random() * 500),
+    'Avability Stock': 234,
   },
 ];
 

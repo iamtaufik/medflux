@@ -7,6 +7,7 @@ import id from 'date-fns/locale/id';
 import Link from 'next/link';
 import React from 'react';
 import { toast } from 'react-toastify';
+import * as XLSX from 'xlsx';
 
 const transactionData = [
   {
@@ -59,6 +60,13 @@ const transactionData = [
   },
 ];
 const Page = () => {
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(transactionData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, 'transactions.xlsx');
+  };
+
   const handleAddTransaction = () => {
     ShowTransactionModal();
     toast.success('Transaction Added Succesfully', {
@@ -86,7 +94,7 @@ const Page = () => {
           <p className="text-base font-normal">Sales transaction report of the pharmacy</p>
         </div>
         <div className="flex gap-6 justify-between md:justify-normal">
-          <button className="flex items-center gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
+          <button onClick={exportToExcel} className="flex items-center gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
@@ -123,9 +131,9 @@ const Page = () => {
         <Table
           paggination={
             {
-              total: 298,
+              total: transactionData.length,
               page: 1,
-              limit: 8,
+              limit: 10,
               setLimit: () => {},
               setOffset: () => {},
             } as any

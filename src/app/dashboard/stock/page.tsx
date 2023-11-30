@@ -1,111 +1,87 @@
 'use client';
 import id from 'date-fns/locale/id';
 import { Card, DonutChart, AreaChart, BarChart, DateRangePicker, SearchSelect, SearchSelectItem } from '@tremor/react';
-import React from 'react';
+import React, { LegacyRef, useRef } from 'react';
 import { ShowModal } from '@/components/Modal';
 import Label from '@/components/Label';
 import { useRouter } from 'next/navigation';
+import { useReactToPrint } from 'react-to-print';
 
 const disease = [
   {
     name: 'Luka Bakar',
-    value: Math.floor(Math.random() * 100),
+    value: 123,
   },
   {
     name: 'Sakit Maag',
-    value: Math.floor(Math.random() * 100),
+    value: 245,
   },
   {
     name: 'Sakit Kepala',
-    value: Math.floor(Math.random() * 100),
+    value: 200,
   },
   {
     name: 'Sakit Gigi',
-    value: Math.floor(Math.random() * 100),
+    value: 231,
   },
   {
     name: 'Sakit Mata',
-    value: Math.floor(Math.random() * 100),
+    value: 124,
   },
   {
     name: 'Sakit Telinga',
-    value: Math.floor(Math.random() * 100),
+    value: 111,
   },
   {
     name: 'Sakit Perut',
-    value: Math.floor(Math.random() * 100),
+    value: 150,
   },
   {
     name: 'Lainnya',
-    value: Math.floor(Math.random() * 100),
+    value: 235,
   },
 ];
 
 const stocks = [
   {
     date: '1 Dec',
-    value: Math.floor(Math.random() * 500),
+    value: 200,
   },
   {
     date: '2 Dec',
-    value: Math.floor(Math.random() * 500),
+    value: 235,
   },
   {
     date: '3 Dec',
-    value: Math.floor(Math.random() * 500),
+    value: 308,
   },
   {
     date: '4 Dec',
-    value: Math.floor(Math.random() * 500),
+    value: 489,
   },
   {
     date: '5 Dec',
-    value: Math.floor(Math.random() * 500),
+    value: 225,
   },
   {
     date: '6 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 356,
   },
   {
     date: '7 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 498,
   },
   {
     date: '8 Dec',
-    value: Math.floor(Math.random() * 100),
+    value: 200,
   },
 ];
 
-const Page = () => {
+const ComponentToPrint = React.forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
   const router = useRouter();
-  const handleAddStock = () => {
-    ShowModal();
-  };
+
   return (
-    <>
-      <div className="flex justify-between md:items-center flex-col px-4 md:px-10 md:flex-row">
-        <div>
-          <h1 className="text-xl md:text-2xl font-bold">Stock</h1>
-          <p className="text-base font-normal">Stock of medicines availabel for sales</p>
-        </div>
-        <div className=" gap-4 hidden md:flex">
-          <button className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            <span>Download Report</span>
-          </button>
-          <button onClick={handleAddStock} className="flex gap-2 text-white px-4 py-2 border bg-primary border-primary rounded-3xl items-center transition-colors duration-300 hover:bg-[#13668D] hover:text-white">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.6143 6.47143 12 6 12C5.52857 12 5.14286 11.6143 5.14286 11.1429V6.85714H0.857143C0.385714 6.85714 0 6.47143 0 6C0 5.52857 0.385714 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.385714 5.52857 0 6 0C6.47143 0 6.85714 0.385714 6.85714 0.857143V5.14286H11.1429C11.6143 5.14286 12 5.52857 12 6C12 6.47143 11.6143 6.85714 11.1429 6.85714Z"
-                fill="white"
-              />
-            </svg>
-            <span>Add Stock</span>
-          </button>
-        </div>
-      </div>
+    <div ref={ref} className="flex flex-col">
       <div className="px-4 md:px-10 flex flex-col gap-8 my-10 md:flex-row">
         <Label
           title="Medicine Available"
@@ -262,6 +238,44 @@ const Page = () => {
           </div>
         </Card>
       </div>
+    </div>
+  );
+});
+
+const Page = () => {
+  const componentRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+  const handleAddStock = () => {
+    ShowModal();
+  };
+  return (
+    <>
+      <div className="flex gap-4 justify-between md:items-center flex-col px-4 md:px-10 md:flex-row">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold">Stock</h1>
+          <p className="text-base font-normal">Stock of medicines availabel for sales</p>
+        </div>
+        <div className=" gap-4 flex justify-between md:justify-normal">
+          <button onClick={handlePrint} className="flex gap-2 text-primary px-4 py-2 border border-primary rounded-3xl transition-colors duration-300 hover:bg-primary hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            <span>Download Report</span>
+          </button>
+          <button onClick={handleAddStock} className="flex gap-2 text-white px-4 py-2 border bg-primary border-primary rounded-3xl items-center transition-colors duration-300 hover:bg-[#13668D] hover:text-white">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.6143 6.47143 12 6 12C5.52857 12 5.14286 11.6143 5.14286 11.1429V6.85714H0.857143C0.385714 6.85714 0 6.47143 0 6C0 5.52857 0.385714 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.385714 5.52857 0 6 0C6.47143 0 6.85714 0.385714 6.85714 0.857143V5.14286H11.1429C11.6143 5.14286 12 5.52857 12 6C12 6.47143 11.6143 6.85714 11.1429 6.85714Z"
+                fill="white"
+              />
+            </svg>
+            <span>Add Stock</span>
+          </button>
+        </div>
+      </div>
+      <ComponentToPrint ref={componentRef} />
     </>
   );
 };

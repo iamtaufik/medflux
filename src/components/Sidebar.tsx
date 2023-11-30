@@ -1,17 +1,18 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { sidebarToggle } from '@/context/sidebarToggle';
 
 const Sidebar = () => {
-  const isActive = sidebarToggle(state => state.isActive);
-  const isDesktopView = sidebarToggle(state => state.isDesktopView);
-  const setIsActive = sidebarToggle(state => state.setIsActive);
-  const setDesktopView = sidebarToggle(state => state.setDesktopView);
+  const isActive = sidebarToggle((state) => state.isActive);
+  const isDesktopView = sidebarToggle((state) => state.isDesktopView);
+  const setIsActive = sidebarToggle((state) => state.setIsActive);
+  const setDesktopView = sidebarToggle((state) => state.setDesktopView);
   const [transactionIsOpen, setTransactionIsOpen] = useState<boolean>(false);
   const [stockIsOpen, setStockIsOpen] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -36,20 +37,56 @@ const Sidebar = () => {
       <div className=" px-6">
         <Image src="/logo-white.svg" alt="Logo" width={170} height={40} />
       </div>
-      <div className="flex gap-2 items-center  px-6 justify-between">
+      <div className="relative flex gap-2 items-center  px-6 justify-between">
         <div>
-          <Image src="/prof.jpg" alt="Profile" width={42} height={42} className="aspect-square rounded-full" />
+          <Image src="/prof.jpeg" alt="Profile" width={42} height={42} className="aspect-squarep rounded-full" />
         </div>
         <div className="text-white whitespace-nowrap">
           <h1 className="text-base">PT. Apotek Jogja</h1>
           <p className="text-xs font-thin">Jl. Affandi No 31, Sleman</p>
         </div>
-        <div>
+        <div className="cursor-pointer" onClick={() => setToggle(!toggle)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white ">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
           </svg>
         </div>
+        {toggle && (
+          <div className="absolute right-2 -bottom-20">
+            <ul className="bg-white rounded-md ">
+              <li className="px-4 py-2 cursor-pointer flex items-center gap-2">
+                <div>
+                  <svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6 0C2.688 0 0 2.688 0 6C0 9.312 2.688 12 6 12C9.312 12 12 9.312 12 6C12 2.688 9.312 0 6 0ZM3.042 9.768C3.3 9.228 4.872 8.7 6 8.7C7.128 8.7 8.706 9.228 8.958 9.768C8.142 10.416 7.116 10.8 6 10.8C4.884 10.8 3.858 10.416 3.042 9.768ZM9.816 8.898C8.958 7.854 6.876 7.5 6 7.5C5.124 7.5 3.042 7.854 2.184 8.898C1.572 8.094 1.2 7.092 1.2 6C1.2 3.354 3.354 1.2 6 1.2C8.646 1.2 10.8 3.354 10.8 6C10.8 7.092 10.428 8.094 9.816 8.898ZM6 2.4C4.836 2.4 3.9 3.336 3.9 4.5C3.9 5.664 4.836 6.6 6 6.6C7.164 6.6 8.1 5.664 8.1 4.5C8.1 3.336 7.164 2.4 6 2.4ZM6 5.4C5.502 5.4 5.1 4.998 5.1 4.5C5.1 4.002 5.502 3.6 6 3.6C6.498 3.6 6.9 4.002 6.9 4.5C6.9 4.998 6.498 5.4 6 5.4Z"
+                      fill="black"
+                    />
+                  </svg>
+                </div>
+                <span>My Profile</span>
+              </li>
+              <hr />
+              <li>
+                <Link href="/" className="px-4 py-2 text-[#F0483E] cursor-pointer flex items-center gap-2">
+                  <div>
+                    <svg width="18" height="18" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.33333 1.33333H5.33333C5.7 1.33333 6 1.03333 6 0.666667C6 0.3 5.7 0 5.33333 0H1.33333C0.6 0 0 0.6 0 1.33333V10.6667C0 11.4 0.6 12 1.33333 12H5.33333C5.7 12 6 11.7 6 11.3333C6 10.9667 5.7 10.6667 5.33333 10.6667H1.33333V1.33333Z"
+                        fill="#F0483E"
+                      />
+                      <path
+                        d="M11.7667 5.76669L9.90667 3.90669C9.69333 3.69335 9.33333 3.84002 9.33333 4.14002V5.33335H4.66667C4.3 5.33335 4 5.63335 4 6.00002C4 6.36669 4.3 6.66669 4.66667 6.66669H9.33333V7.86002C9.33333 8.16002 9.69333 8.30669 9.9 8.09335L11.76 6.23335C11.8933 6.10669 11.8933 5.89335 11.7667 5.76669Z"
+                        fill="#F0483E"
+                      />
+                    </svg>
+                  </div>
+                  <span>Logout</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
+
       <div>
         <ul className="text-white">
           <li className={` ${pathname?.startsWith('/dashboard/medicine') || pathname === '/dashboard' ? 'bg-primary' : ''}`}>

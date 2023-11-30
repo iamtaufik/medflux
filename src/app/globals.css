@@ -56,12 +56,3 @@ body {
 .scroll-x::-webkit-scrollbar-thumb:hover {
   background: #1b81b0;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

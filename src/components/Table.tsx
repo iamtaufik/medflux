@@ -13,6 +13,29 @@ interface IProps {
 }
 
 const Table = (props: IProps) => {
+  const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLimit = parseInt(e.target.value, 10);
+    props.paggination?.setLimit(newLimit);
+  };
+
+  const handlePrevPage = () => {
+    if (props.paggination?.page && props.paggination?.page > 1) {
+      const newPage = props.paggination.page - 1;
+      props.paggination.setOffset((newPage - 1) * props.paggination.limit);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (props.paggination?.page && props.paggination?.total && props.paggination?.limit) {
+      const totalPages = Math.ceil(props.paggination.total / props.paggination.limit);
+      if (props.paggination.page < totalPages) {
+        const newPage = props.paggination.page + 1;
+        const newOffset = (newPage - 1) * props.paggination.limit;
+        props.paggination.setOffset(newOffset);
+      }
+    }
+  };
+
   return (
     <div className=" rounded-xl border overflow-hidden    py-4 relative w-full">
       <div className="relative w-full scroll-x overflow-x-auto py-2">
@@ -21,10 +44,16 @@ const Table = (props: IProps) => {
       {props.paggination && (
         <div className="flex justify-between my-4 px-4">
           <p className="font-semibold">
-            Showing {props.paggination?.limit} results of {props.paggination?.total}
+            Showing
+            <select className="border rounded mx-2 px-2 py-1" value={props.paggination.limit} onChange={handleLimitChange}>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={50}>50</option>
+            </select>
+            results of {props.paggination?.total}
           </p>
           <div className="flex gap-2">
-            <div>
+            <div onClick={handlePrevPage}>
               <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="27" height="27" rx="13.5" transform="matrix(-1 0 0 1 27 0)" fill="white" />
                 <rect x="-0.2" y="0.2" width="26.6" height="26.6" rx="13.3" transform="matrix(-1 0 0 1 26.6 0)" stroke="#1D242E" strokeOpacity="0.3" strokeWidth="0.4" />
@@ -36,7 +65,7 @@ const Table = (props: IProps) => {
               </svg>
             </div>
             <p className="font-normal">Page {props.paggination.page}</p>
-            <div>
+            <div onClick={handleNextPage}>
               <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.2" y="0.2" width="26.6" height="26.6" rx="13.3" stroke="#1B81B0" strokeWidth="0.4" />
                 <path
