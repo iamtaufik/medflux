@@ -115,8 +115,8 @@ const Dashboard = () => {
       </div>
       <div className="mb-10 flex w-full px-4 justify-between flex-col md:flex-row md:px-10">
         <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-bold">Recomendations</h2>
-          <p className="text-base font-normal mt-2">Machine Learning Analytics</p>
+          <h2 className="text-2xl font-bold">Recommendations</h2>
+          <p className="text-base font-normal mt-2">Artificial Intelligence Analytics</p>
           <div className="flex flex-col my-2">
             <Card title="Oil Bioprost Kaps" quantity={12} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
             <Card title="Asifit Kaplet-Blister" quantity={9} distributors={['PT. Kimiafarma', 'PBF Bali Jaya Farmasindo']} detailLink="#" />
